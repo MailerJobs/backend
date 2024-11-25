@@ -1,0 +1,4 @@
+# Flask specific Backend
+__pycache__/
+.venv
+config.py
