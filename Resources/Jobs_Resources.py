@@ -39,10 +39,38 @@ class JobResource(Resource):
             return make_response(jsonify({"message": "Job not found"}), 400)
         return make_response(jsonify({"message": f"Job {job_id} deleted successfully!"}), 200)
     
-class JobViewResource(Resource):
+class JobFilterResource(Resource):
 
-    def patch(self, job_id, new_view):
-        view = Jobs.update_views_by_id(job_id, new_view)
-        if view:
-            return make_response(jsonify({"message": "View Not Found"}), 400)
-        return make_response(jsonify({"message": f"View {job_id} updated successfully!"}), 200)
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('location')
+        parser.add_argument('date_posted')
+        parser.add_argument('experience')
+        parser.add_argument('sector')
+        parser.add_argument('job_Type')
+        parser.add_argument('skills')
+        args = parser.parse_args()
+        return Jobs.get_jobs_by_filters(args['location'],args['date_posted'],args['experience'],args['sector'],args['job_Type'],args['skills'])
+
+class JobSectorResource(Resource):
+
+    def get(self, sector):
+        sectorJobs = Jobs.get_jobs_by_sector(sector)
+        print ("SectorJobs = ",sectorJobs)
+        return sectorJobs
+    
+class JobSearchResource(Resource):
+
+    def get(self):
+        search_jobs = Jobs.get_jobs_for_search()
+        return search_jobs
+    
+class JobSearchBarResource(Resource):
+
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('searchQuery')
+        parser.add_argument('experience')
+        parser.add_argument('location')
+        args = parser.parse_args()
+        return Jobs.get_job_by_search(args['searchQuery'],args['experience'],args['location'])
