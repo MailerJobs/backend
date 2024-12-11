@@ -1,7 +1,6 @@
 from flask_restful import Resource, reqparse
 from Models.Candidate import Candidate
 from flask import jsonify, make_response, request
-from flask_login import login_user, logout_user, login_required, current_user,UserMixin
 import bcrypt
 from tokenManager import generate_token, decode_token, blacklist_token
 

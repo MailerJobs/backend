@@ -50,13 +50,17 @@ class JobFilterResource(Resource):
         parser.add_argument('job_Type')
         parser.add_argument('skills')
         args = parser.parse_args()
-        return Jobs.get_jobs_by_filters(args['location'],args['date_posted'],args['experience'],args['sector'],args['job_Type'],args['skills'])
+        filteredJobs = Jobs.get_jobs_by_filters(args['location'],args['date_posted'],args['experience'],args['sector'],args['job_Type'],args['skills'])
+        if not filteredJobs:
+            return make_response(jsonify({"message": "Job not found"}), 400)
+        return filteredJobs
 
 class JobSectorResource(Resource):
 
     def get(self, sector):
         sectorJobs = Jobs.get_jobs_by_sector(sector)
-        print ("SectorJobs = ",sectorJobs)
+        if not sectorJobs:
+            return make_response(jsonify({"message": "Job not found"}), 400)
         return sectorJobs
     
 class JobSearchResource(Resource):
@@ -73,4 +77,7 @@ class JobSearchBarResource(Resource):
         parser.add_argument('experience')
         parser.add_argument('location')
         args = parser.parse_args()
-        return Jobs.get_job_by_search(args['searchQuery'],args['experience'],args['location'])
+        searchBarJobs = Jobs.get_job_by_search(args['searchQuery'],args['experience'],args['location'])
+        if not searchBarJobs:
+            return make_response(jsonify({"message": "Job not found"}), 400)
+        return searchBarJobs
