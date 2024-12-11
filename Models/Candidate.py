@@ -1,9 +1,7 @@
-from flask_login import UserMixin
 import mysql.connector
 from config import Config
 from datetime import datetime, timedelta
 import bcrypt
-from extension import login_manager
 
 
 def get_db_connection():
@@ -15,7 +13,7 @@ def get_db_connection():
     )
     return connection
 
-class Candidate(UserMixin):
+class Candidate():
 
     def __init__(self, id, username, password, is_active=True):
         self.id = id
@@ -31,7 +29,7 @@ class Candidate(UserMixin):
     def get_all_candidate():
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * from candidate")
+        cursor.execute("SELECT * FROM candidate")
         candidates = cursor.fetchall()
         for row in candidates:
             if 'created_date' in row and isinstance(row['created_date'], datetime):
