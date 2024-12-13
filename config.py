@@ -16,10 +16,10 @@
 #         MYSQL_PASSWORD = 'Chandra_121' 
 
 class Config():
-    MYSQL_HOST = 'mailerjobs-rds.c3gksico46df.ap-south-1.rds.amazonaws.com'         # MySQL server host
-    MYSQL_DATABASE = 'mailerjobs'  # Your MySQL database name
-    MYSQL_USER = 'adminMailerjobs'# MySQL username
-    MYSQL_PASSWORD = 'mailerjobs1211'   # MySQL password (change it to your actual password)
+    MYSQL_HOST = '147.79.68.252'         # MySQL server host
+    MYSQL_DATABASE = 'new_mj_db'  # Your MySQL database name
+    MYSQL_USER = 'new_mj_user'# MySQL username
+    MYSQL_PASSWORD = 'Nextlearn@123'   # MySQL password (change it to your actual password)
     SECRET_KEY = "d9a6d1f1f5dab18e3659868484ccc85a"
 
 class TestingConfig:
