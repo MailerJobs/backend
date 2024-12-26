@@ -1,4 +1,4 @@
-
+import os
 
 # class ConfigClass:
 #     class ProductionConfig:
@@ -15,12 +15,33 @@
 #         MYSQL_USER = 'root'              # MySQL username
 #         MYSQL_PASSWORD = 'Chandra_121' 
 
+# class Config():
+#     MYSQL_HOST = 'mailerjobs-rds.c3gksico46df.ap-south-1.rds.amazonaws.com'         # MySQL server host
+#     MYSQL_DATABASE = 'mailerjobs'  # Your MySQL database name
+#     MYSQL_USER = 'adminMailerjobs'# MySQL username
+#     MYSQL_PASSWORD = 'mailerjobs1211'   # MySQL password (change it to your actual password)
+#     SECRET_KEY = "d9a6d1f1f5dab18e3659868484ccc85a"
+
 class Config():
-    MYSQL_HOST = 'mailerjobs-rds.c3gksico46df.ap-south-1.rds.amazonaws.com'         # MySQL server host
+    MYSQL_HOST = 'localhost'         # MySQL server host
     MYSQL_DATABASE = 'mailerjobs'  # Your MySQL database name
-    MYSQL_USER = 'adminMailerjobs'# MySQL username
-    MYSQL_PASSWORD = 'mailerjobs1211'   # MySQL password (change it to your actual password)
+    MYSQL_USER = 'root'              # MySQL username
+    MYSQL_PASSWORD = 'Chandra_121'   # MySQL password (change it to your actual password)
     SECRET_KEY = "d9a6d1f1f5dab18e3659868484ccc85a"
+    FRONTEND = os.path.join(os.getcwd(), 'mailerweb')
+    PUBLIC_FOLDER = os.path.join(FRONTEND, 'public')
+    UPLOAD_FOLDER = os.path.join(PUBLIC_FOLDER, 'uploads')
+    COMPANY_LOGO = os.path.join(UPLOAD_FOLDER, 'company_logo')
+    PROFILE_FOLDER = os.path.join(UPLOAD_FOLDER, 'profile_pic')
+    RESUME_FOLDER = os.path.join(UPLOAD_FOLDER, 'resume')
+    COLLEGE_RESUME_FOLDER = os.path.join(RESUME_FOLDER, 'college')
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+    ALLOWED_RESUME_EXTENSIONS = {'pdf'}
+
+os.makedirs(Config.COMPANY_LOGO, exist_ok=True)
+os.makedirs(Config.PROFILE_FOLDER, exist_ok=True)
+os.makedirs(Config.RESUME_FOLDER,exist_ok=True)
+os.makedirs(Config.COLLEGE_RESUME_FOLDER,exist_ok=True)
 
 class TestingConfig:
     TESTING = True
@@ -30,3 +51,4 @@ class TestingConfig:
     MYSQL_PASSWORD = 'Chandra_121' 
 
     # C:\Users\visha\OneDrive\Documents\dumps\Dump20241211
+
