@@ -1,8 +1,8 @@
 import os
 from flask_restful import Resource, reqparse
-from server.Models.students import Students
+from Models.students import Students
 from flask import  jsonify, make_response, request
-from server.config import Config
+from config import Config
 from werkzeug.utils import secure_filename
 
 

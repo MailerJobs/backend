@@ -1,6 +1,6 @@
 import mysql.connector
 from flask import current_app
-from server.config import Config
+from config import Config
 
 
 

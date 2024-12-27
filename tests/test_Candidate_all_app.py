@@ -1,7 +1,7 @@
 import bcrypt
 import pytest
 from unittest import mock
-from server.Models.Candidate import Candidate
+from Models.Candidate import Candidate
 from datetime import datetime
 
 @pytest.fixture

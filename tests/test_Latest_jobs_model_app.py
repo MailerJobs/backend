@@ -1,6 +1,6 @@
 import pytest
 from unittest import mock
-from server.Models.Latest_Jobs import Latest_Jobs 
+from Models.Latest_Jobs import Latest_Jobs 
 from datetime import datetime
 
 @pytest.fixture
