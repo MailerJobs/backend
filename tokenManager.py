@@ -1,4 +1,4 @@
-from server.config import Config
+from config import Config
 import jwt
 from datetime import datetime, timedelta
 

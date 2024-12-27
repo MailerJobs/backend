@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from server.Models.Colleges import Colleges
+from Models.Colleges import Colleges
 from flask import jsonify, make_response
 
 class CollegesListReosurce(Resource):

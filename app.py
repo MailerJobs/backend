@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
-from server.config import Config
+from config import Config
 
 # from server import create_app
 
@@ -16,8 +16,8 @@ CORS(
 app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 api = Api(app)
 
-from server.Resources.Latest_Jobs_Resources import LatestListResource, LatestResource
-from server.Resources.Jobs_Resources import (
+from Resources.Latest_Jobs_Resources import LatestListResource, LatestResource
+from Resources.Jobs_Resources import (
     JobsListResource,
     JobResource,
     JobFilterResource,
@@ -25,8 +25,8 @@ from server.Resources.Jobs_Resources import (
     JobSearchResource,
     JobSearchBarResource,
 )
-from server.Resources.Skills_Resources import SkillsListResource, SkillsResource
-from server.Resources.CandidatesResource import (
+from Resources.Skills_Resources import SkillsListResource, SkillsResource
+from Resources.CandidatesResource import (
     CandidateListResource,
     CandidateRegisterResource,
     CandidateLoginResource,
@@ -42,7 +42,7 @@ from server.Resources.CandidatesResource import (
     CandiateAppliedJobsResource,
     CandidateChangePasswordResource
 )
-from server.Resources.ClientResource import (
+from Resources.ClientResource import (
     ClientListResource,
     ClientRegisterResource,
     ClientLoginResource,
@@ -57,9 +57,9 @@ from server.Resources.ClientResource import (
     ClientChangePasswordResource
 )
 
-from server.Resources.CollegeResource import CollegesListReosurce
+from Resources.CollegeResource import CollegesListReosurce
 
-from server.Resources.StudentsResource import StudentResource, StudentsByCollegeResource
+from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
 
 ### Below are the api endpoints
 

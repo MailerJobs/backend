@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from server.Models.Candidate import Candidate 
+from Models.Candidate import Candidate 
 import bcrypt
 
 # Mocking database connection

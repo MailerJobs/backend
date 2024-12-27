@@ -1,13 +1,13 @@
 from flask_restful import Resource, reqparse
-from server.Models.Client import Client
+from Models.Client import Client
 from flask import jsonify, make_response, request
 import bcrypt
 from werkzeug.utils import secure_filename
-from server.tokenManager import generate_token, decode_token, blacklist_token
-from server.config import Config
+from tokenManager import generate_token, decode_token, blacklist_token
+from config import Config
 import os
-from server.Models.Jobs import Jobs
-from server.Models.Required_Skills import Skills
+from Models.Jobs import Jobs
+from Models.Required_Skills import Skills
 
 
 def allowed_file(filename):

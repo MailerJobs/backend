@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from server.Models.Jobs import Jobs
+from Models.Jobs import Jobs
 from flask import jsonify, make_response
 
 

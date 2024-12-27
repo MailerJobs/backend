@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse,request
 from flask import jsonify, make_response
-from server.Models.Required_Skills import Skills
+from Models.Required_Skills import Skills
 
 class SkillsListResource(Resource):
     def get(self):

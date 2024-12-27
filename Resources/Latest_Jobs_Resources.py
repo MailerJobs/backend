@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from server.Models.Latest_Jobs import Latest_Jobs
+from Models.Latest_Jobs import Latest_Jobs
 from flask import jsonify, make_response
 
 class LatestListResource(Resource):

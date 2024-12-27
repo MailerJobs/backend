@@ -1,12 +1,12 @@
 from flask_restful import Resource, reqparse
 import jwt
-from server.Models.Candidate import Candidate
-from server.Models.Jobs import Jobs
+from Models.Candidate import Candidate
+from Models.Jobs import Jobs
 from flask import jsonify, make_response, request, send_from_directory
 import bcrypt
 from werkzeug.utils import secure_filename
-from server.tokenManager import generate_token, decode_token, blacklist_token
-from server.config import Config
+from tokenManager import generate_token, decode_token, blacklist_token
+from config import Config
 import os
 
 

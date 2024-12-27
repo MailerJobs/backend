@@ -1,5 +1,5 @@
 import mysql.connector
-from server.config import Config
+from config import Config
 from datetime import datetime, timedelta
 
 def get_db_connection():

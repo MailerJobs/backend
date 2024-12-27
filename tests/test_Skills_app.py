@@ -1,6 +1,6 @@
 import pytest
 from unittest import mock
-from server.Models.Required_Skills import Skills 
+from Models.Required_Skills import Skills 
 from datetime import datetime
 
 @pytest.fixture
