@@ -8,6 +8,7 @@ from config import Config
 app = Flask(__name__)
 
 app.config.from_object(Config)
+
 CORS(
     app,
     supports_credentials=True,
@@ -22,6 +23,7 @@ CORS(
         }
     },
 )
+
 app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 api = Api(app)
 
