@@ -261,7 +261,7 @@ class Candidate:
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
         cursor.execute(
-            "SELECT aj.id AS application_id, j.image_url AS job_image, j.job_org AS job_org, j.job_title AS job_title, j.sector AS job_sector, aj.application_date, aj.status FROM applied_jobs aj JOIN candidate c ON aj.candidate_id = c.id JOIN jobs j ON aj.job_id = j.id WHERE aj.candidate_id = %s",
+            "SELECT aj.id AS application_id,j.id, j.Posted_Date, j.image_url,j.city, j.job_org, j.job_title, j.experience, j.education, j.sector, j.job_description, j.salary, aj.application_date, aj.status FROM applied_jobs aj JOIN candidate c ON aj.candidate_id = c.id JOIN jobs j ON aj.job_id = j.id WHERE aj.candidate_id = %s",
             (can_id,),
         )
         candidate_jobs = cursor.fetchall()
@@ -270,7 +270,14 @@ class Candidate:
                 row["application_date"], datetime
             ):
                 row["application_date"] = row["application_date"].strftime(
-                    "%Y-%m-%d %H:%M:%S"
+                    "%d-%m-%Y %H:%M:%S"
+                )
+        for row in candidate_jobs:
+            if "Posted_Date" in row and isinstance(
+                row["Posted_Date"], datetime
+            ):
+                row["Posted_Date"] = row["Posted_Date"].strftime(
+                    "%d-%m-%Y %H:%M:%S"
                 )
         cursor.close()
         conn.close()

@@ -263,3 +263,4 @@ class Jobs:
         cursor.close()
         conn.close()
         return True
+    

@@ -11,7 +11,16 @@ app.config.from_object(Config)
 CORS(
     app,
     supports_credentials=True,
-    resources={r"/*": {"origins": "http://localhost:5174"}},
+    resources={
+        r"/*": {
+            "origins": [
+                "http://localhost:5173",
+                "http://localhost:4173",
+                "https://nextlearn.co.in",
+                "https://api.nextlearn.co.in",
+            ]
+        }
+    },
 )
 app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 api = Api(app)
@@ -40,7 +49,7 @@ from Resources.CandidatesResource import (
     CandiateUpdateDetailsResource,
     CandidateApplyJobResource,
     CandiateAppliedJobsResource,
-    CandidateChangePasswordResource
+    CandidateChangePasswordResource,
 )
 from Resources.ClientResource import (
     ClientListResource,
@@ -54,7 +63,7 @@ from Resources.ClientResource import (
     ClientUpdateDetailsResource,
     ClientUpdateJobDetailsResource,
     ClientCandidatesByJobsResource,
-    ClientChangePasswordResource
+    ClientChangePasswordResource,
 )
 
 from Resources.CollegeResource import CollegesListReosurce
@@ -65,68 +74,74 @@ from Resources.StudentsResource import StudentResource, StudentsByCollegeResourc
 
 ## Jobs, Latest Jobs api endpoints
 # Start
-api.add_resource(LatestListResource, "/latest_jobs")
-api.add_resource(LatestResource, "/latest_jobs/<int:job_id>")
-api.add_resource(JobsListResource, "/jobs")
-api.add_resource(JobResource, "/job/<int:job_id>")
-api.add_resource(JobFilterResource, "/filterjobs")
-api.add_resource(JobSectorResource, "/jobsector/<string:sector>")
-api.add_resource(JobSearchResource, "/searchjobs")
-api.add_resource(JobSearchBarResource, "/searchbarjobs")
+api.add_resource(LatestListResource, "/api/latest_jobs")
+api.add_resource(LatestResource, "/api/latest_jobs/<int:job_id>")
+api.add_resource(JobsListResource, "/api/jobs")
+api.add_resource(JobResource, "/api/job/<int:job_id>")
+api.add_resource(JobFilterResource, "/api/filterjobs")
+api.add_resource(JobSectorResource, "/api/jobsector/<string:sector>")
+api.add_resource(JobSearchResource, "/api/searchjobs")
+api.add_resource(JobSearchBarResource, "/api/searchbarjobs")
 # End
 
 ## Skills api endpoints
 # Start
-api.add_resource(SkillsListResource, "/skills")
-api.add_resource(SkillsResource, "/skill/<int:id>")
+api.add_resource(SkillsListResource, "/api/skills")
+api.add_resource(SkillsResource, "/api/skill/<int:id>")
 # End
 
 ## Candidate api endpoints
 # Start
-api.add_resource(CandidateListResource, "/candidates")
-api.add_resource(CandidateRegisterResource, "/registercandidate")
-api.add_resource(CandidateLoginResource, "/login")
-api.add_resource(CandidateLogoutResource, "/logout")
-api.add_resource(CandidateResource, "/candidate/<int:id>")
-api.add_resource(CandidateProfilePicUploadResource, "/upload-profile-pic")
-api.add_resource(CandidateResumeUploadResource, "/upload-resume")
+api.add_resource(CandidateListResource, "/api/candidates")
+api.add_resource(CandidateRegisterResource, "/api/registercandidate")
+api.add_resource(CandidateLoginResource, "/api/login")
+api.add_resource(CandidateLogoutResource, "/api/logout")
+api.add_resource(CandidateResource, "/api/candidate/<int:id>")
+api.add_resource(CandidateProfilePicUploadResource, "/api/upload-profile-pic")
+api.add_resource(CandidateResumeUploadResource, "/api/upload-resume")
 api.add_resource(
-    CandidateResumeDeleteResource, "/remove-resume/<string:filename>/<int:id>"
+    CandidateResumeDeleteResource, "/api/remove-resume/<string:filename>/<int:id>"
 )
-api.add_resource(CandidateLikedJobsResource, "/job-liked")
-api.add_resource(CandidateGetLikedJobsResource, "/liked-job/<int:can_id>")
-api.add_resource(CandiateUpdateDetailsResource, "/update/<int:candidate_id>")
-api.add_resource(CandidateApplyJobResource, "/apply-job")
-api.add_resource(CandiateAppliedJobsResource, "/applied-jobs/<int:can_id>")
-api.add_resource(CandidateChangePasswordResource, "/candidate-pass-change/<int:can_id>")
+api.add_resource(CandidateLikedJobsResource, "/api/job-liked")
+api.add_resource(CandidateGetLikedJobsResource, "/api/liked-job/<int:can_id>")
+api.add_resource(CandiateUpdateDetailsResource, "/api/update/<int:candidate_id>")
+api.add_resource(CandidateApplyJobResource, "/api/apply-job")
+api.add_resource(CandiateAppliedJobsResource, "/api/applied-jobs/<int:can_id>")
+api.add_resource(
+    CandidateChangePasswordResource, "/api/candidate-pass-change/<int:can_id>"
+)
 # End
-    
+
 ## Client api endpoints
 # Start
-api.add_resource(ClientListResource, "/clients")
-api.add_resource(ClientRegisterResource, "/registerclient")
-api.add_resource(ClientLoginResource, "/client-login")
-api.add_resource(ClientLogoutResource, "/client-logout")
-api.add_resource(ClientResource, "/client/<int:id>")
-api.add_resource(ClientLogoUploadResource, "/upload_comapny_logo")
-api.add_resource(ClientJobsResource, "/client-jobs/<int:client_id>")
-api.add_resource(ClientPostJobResource, "/post-job")
-api.add_resource(ClientUpdateDetailsResource, "/client-update/<int:client_id>")
-api.add_resource(ClientUpdateJobDetailsResource, "/client-update-job/<int:job_id>")
-api.add_resource(ClientCandidatesByJobsResource, "/client-candidates/<int:job_id>")
-api.add_resource(ClientChangePasswordResource, "/client-pass-change/<int:client_id>")
+api.add_resource(ClientListResource, "/api/clients")
+api.add_resource(ClientRegisterResource, "/api/registerclient")
+api.add_resource(ClientLoginResource, "/api/client-login")
+api.add_resource(ClientLogoutResource, "/api/client-logout")
+api.add_resource(ClientResource, "/api/client/<int:id>")
+api.add_resource(ClientLogoUploadResource, "/api/upload_comapny_logo")
+api.add_resource(ClientJobsResource, "/api/client-jobs/<int:client_id>")
+api.add_resource(ClientPostJobResource, "/api/post-job")
+api.add_resource(ClientUpdateDetailsResource, "/api/client-update/<int:client_id>")
+api.add_resource(ClientUpdateJobDetailsResource, "/api/client-update-job/<int:job_id>")
+api.add_resource(ClientCandidatesByJobsResource, "/api/client-candidates/<int:job_id>")
+api.add_resource(
+    ClientChangePasswordResource, "/api/client-pass-change/<int:client_id>"
+)
 # End
 
 
 ## College api endpoints
 # Start
-api.add_resource(CollegesListReosurce, "/colleges")
+api.add_resource(CollegesListReosurce, "/api/colleges")
 # End
 
 ## College_Student api endpoints
 # Start
-api.add_resource(StudentResource, "/student-add")
-api.add_resource(StudentsByCollegeResource,"/student-college/<string:college_name>")
+api.add_resource(StudentResource, "/api/student-add")
+api.add_resource(
+    StudentsByCollegeResource, "/api/student-college/<string:college_name>"
+)
 
 if __name__ == "__main__":
     app.run(debug=True)
