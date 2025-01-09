@@ -31,6 +31,7 @@ class StudentResource(Resource):
             filename = secure_filename(resume.filename)
             file_path = os.path.join(Config.COLLEGE_RESUME_FOLDER, filename)
             resume.save(file_path)
+            print(file_path)
             updated = Students.add_student_details(college_name,full_name,username,email,phone,pincode,city,usn,course,filename)
 
             if updated:

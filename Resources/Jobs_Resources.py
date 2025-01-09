@@ -113,3 +113,10 @@ class JobSearchBarResource(Resource):
         if not searchBarJobs:
             return make_response(jsonify({"message": "Job not found"}), 400)
         return searchBarJobs
+    
+class JobViewResource(Resource):
+    def get(self, job_id):
+        job = Jobs.get_job_by_job_id(job_id)
+        if job:
+            return job
+        return {"message": "Job Not Found"}, 400

@@ -274,3 +274,29 @@ class Client:
         cursor.close()
         conn.close()
         return True
+    
+    @staticmethod
+    def client_name_list():
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT company_name FROM client")
+        client_name = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return client_name
+    
+    @staticmethod
+    def get_jobs_client_by_comapny_name(company_name):
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT j.id AS job_id,j.job_org AS company_name,j.job_type AS job_type,j.city AS city, j.job_title AS job_title,j.Posted_Date AS job_date , j.sector AS job_sector, j.status AS job_status, j.applied AS job_applied FROM jobs j JOIN client c ON j.job_org = c.company_name WHERE c.company_name = %s",
+            (company_name,),
+        )
+        client_jobs = cursor.fetchall()
+        for row in client_jobs:
+            if 'job_date' in row and isinstance(row['job_date'], datetime):
+                row['job_date'] = row['job_date'].strftime('%d-%m-%Y')
+        cursor.close()
+        conn.close()
+        return client_jobs

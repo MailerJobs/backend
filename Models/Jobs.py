@@ -264,3 +264,15 @@ class Jobs:
         conn.close()
         return True
     
+    @staticmethod
+    def get_job_by_job_id(job_id):
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM jobs where id = %s", (job_id,))
+        job = cursor.fetchone()
+        if "Posted_Date" in job and isinstance(job["Posted_Date"], datetime):
+                job["Posted_Date"] = job["Posted_Date"].strftime("%Y-%m-%d %H:%M:%S")
+        cursor.close()
+        conn.close()
+        return job
+    
