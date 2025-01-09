@@ -297,3 +297,13 @@ class Candidate:
         cursor.close()
         conn.close()
         return True
+    
+    @staticmethod
+    def get_candidates_email():
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT email FROM candidate")
+        candidates = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return candidates

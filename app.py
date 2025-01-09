@@ -16,6 +16,7 @@ CORS(
         r"/*": {
             "origins": [
                 "http://localhost:5173",
+                "http://localhost:5174",
                 "http://localhost:4173",
                 "https://nextlearn.co.in",
                 "https://api.nextlearn.co.in",
@@ -35,6 +36,7 @@ from Resources.Jobs_Resources import (
     JobSectorResource,
     JobSearchResource,
     JobSearchBarResource,
+    JobViewResource
 )
 from Resources.Skills_Resources import SkillsListResource, SkillsResource
 from Resources.CandidatesResource import (
@@ -52,6 +54,7 @@ from Resources.CandidatesResource import (
     CandidateApplyJobResource,
     CandiateAppliedJobsResource,
     CandidateChangePasswordResource,
+    CandidateEmailListResource
 )
 from Resources.ClientResource import (
     ClientListResource,
@@ -66,6 +69,8 @@ from Resources.ClientResource import (
     ClientUpdateJobDetailsResource,
     ClientCandidatesByJobsResource,
     ClientChangePasswordResource,
+    ClientNameListResource,
+    ClientJobsByComapnyNameResource
 )
 
 from Resources.CollegeResource import CollegesListReosurce
@@ -84,6 +89,7 @@ api.add_resource(JobFilterResource, "/api/filterjobs")
 api.add_resource(JobSectorResource, "/api/jobsector/<string:sector>")
 api.add_resource(JobSearchResource, "/api/searchjobs")
 api.add_resource(JobSearchBarResource, "/api/searchbarjobs")
+api.add_resource(JobViewResource, "/api/jobview/<int:job_id>")
 # End
 
 ## Skills api endpoints
@@ -112,6 +118,7 @@ api.add_resource(CandiateAppliedJobsResource, "/api/applied-jobs/<int:can_id>")
 api.add_resource(
     CandidateChangePasswordResource, "/api/candidate-pass-change/<int:can_id>"
 )
+api.add_resource(CandidateEmailListResource, "/api/candidate-email-list")
 # End
 
 ## Client api endpoints
@@ -130,6 +137,8 @@ api.add_resource(ClientCandidatesByJobsResource, "/api/client-candidates/<int:jo
 api.add_resource(
     ClientChangePasswordResource, "/api/client-pass-change/<int:client_id>"
 )
+api.add_resource(ClientNameListResource, "/api/client-name-list")
+api.add_resource(ClientJobsByComapnyNameResource, "/api/client-jobs-by-name")
 # End
 
 

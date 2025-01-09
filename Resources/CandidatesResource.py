@@ -352,3 +352,10 @@ class CandidateChangePasswordResource(Resource):
         pass_update = Candidate.change_candidate_password(can_id,new_password)
         if pass_update:
             return {"message": "password updated succefully", "token":decoded_token}, 200
+        
+class CandidateEmailListResource(Resource):
+    def get(self):
+        candidate = Candidate.get_candidates_email()
+        if not candidate:
+            return {"message": "No Candidate found"}, 404
+        return candidate, 200

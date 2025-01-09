@@ -322,3 +322,22 @@ class ClientChangePasswordResource(Resource):
         pass_update = Client.change_password(client_id,new_password)
         if pass_update:
             return {"message": "password updated succefully", "token":decoded_token}, 200
+        
+class ClientNameListResource(Resource):
+    def get(self):
+        client_names = Client.client_name_list()
+        if client_names:
+            return client_names
+        return {"message": "No Clients found"}, 404
+    
+
+class ClientJobsByComapnyNameResource(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument("company_name")
+        args = parser.parse_args()
+        company_name = args["company_name"]
+        jobs = Client.get_jobs_client_by_comapny_name(company_name)
+        if jobs:
+            return jobs, 200
+        return {"message": "No Jobs found"}, 404
