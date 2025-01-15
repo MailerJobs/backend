@@ -36,9 +36,13 @@ from Resources.Jobs_Resources import (
     JobSectorResource,
     JobSearchResource,
     JobSearchBarResource,
-    JobViewResource
+    JobViewResource,
 )
-from Resources.Skills_Resources import SkillsListResource, SkillsResource
+from Resources.Skills_Resources import (
+    SkillsListOfJobResource,
+    SkillsResource,
+    SkillsListResource,
+)
 from Resources.CandidatesResource import (
     CandidateListResource,
     CandidateRegisterResource,
@@ -54,7 +58,7 @@ from Resources.CandidatesResource import (
     CandidateApplyJobResource,
     CandiateAppliedJobsResource,
     CandidateChangePasswordResource,
-    CandidateEmailListResource
+    CandidateEmailListResource,
 )
 from Resources.ClientResource import (
     ClientListResource,
@@ -70,10 +74,14 @@ from Resources.ClientResource import (
     ClientCandidatesByJobsResource,
     ClientChangePasswordResource,
     ClientNameListResource,
-    ClientJobsByComapnyNameResource
+    ClientJobsByComapnyNameResource,
 )
 
-from Resources.CollegeResource import CollegesListReosurce
+from Resources.CollegeResource import (
+    CollegesListReosurce,
+    CollegeResource,
+    CollegeNamesListResource,
+)
 
 from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
 
@@ -145,6 +153,8 @@ api.add_resource(ClientJobsByComapnyNameResource, "/api/client-jobs-by-name")
 ## College api endpoints
 # Start
 api.add_resource(CollegesListReosurce, "/api/colleges")
+api.add_resource(CollegeResource, "/api/college/<string:college_name>")
+api.add_resource(CollegeNamesListResource, "/api/college-names")
 # End
 
 ## College_Student api endpoints
@@ -153,6 +163,7 @@ api.add_resource(StudentResource, "/api/student-add")
 api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
+# End
 
 if __name__ == "__main__":
     app.run(debug=True)

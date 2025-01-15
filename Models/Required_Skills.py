@@ -16,6 +16,15 @@ class Skills:
     def get_all_skills():
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT skill_name FROM skills")
+        skills = cursor.fetchall()
+        cursor.close()
+        return skills
+
+    @staticmethod
+    def get_all_skills_by_job():
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
         cursor.execute("SELECT skill_name FROM jobs j JOIN job_skills js on j.id = js.id JOIN skills s on js.skill_id = s.skill_id ORDER BY j.id ")
         skills = cursor.fetchall()
         cursor.close()

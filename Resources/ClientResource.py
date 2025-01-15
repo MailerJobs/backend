@@ -41,6 +41,19 @@ class ClientRegisterResource(Resource):
         parser.add_argument("company_name")
         args = parser.parse_args()
 
+        if (
+            not args["email"]
+            or not args["password"]
+            or not args["confirm_password"]
+            or not args["first_name"]
+            or not args["last_name"]
+            or not args["username"]
+            or not args["phone"]
+            or not args["pincode"]
+            or not args["company_name"]
+        ):
+            return {"message": "All fields are required"}, 422
+
         existing_user = Client.already_registered(args["email"])
 
         if existing_user:
@@ -187,17 +200,20 @@ class ClientPostJobResource(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument("job_title")
         parser.add_argument("job_salary")
-        parser.add_argument("job_exp")
         parser.add_argument("job_education")
         parser.add_argument("job_org")
         parser.add_argument("job_description")
         parser.add_argument("job_sector")
-        parser.add_argument("city")
-        parser.add_argument("state")
         parser.add_argument("job_pincode")
         parser.add_argument("job_type")
         parser.add_argument("client_id")
         args = parser.parse_args()
+        experiences = data.get("job_exp")
+        experience = ", ".join(experiences)
+        cities = data.get("city")
+        city = ", ".join(cities)
+        states = data.get("state")
+        state = ", ".join(states)
         image_logo_name = Client.get_logo_name(args["client_id"])
         image = image_logo_name["logo_url"]
         print(image_logo_name["logo_url"])
@@ -221,18 +237,17 @@ class ClientPostJobResource(Resource):
         print(job_skill)
         # print(image_logo['logo_url'])
 
-
         post_job_id = Jobs.create_job(
             args["job_title"],
             args["job_salary"],
-            args["job_exp"],
+            experience,
             args["job_education"],
             args["job_org"],
             image_logo,
             args["job_description"],
             args["job_sector"],
-            args["city"],
-            args["state"],
+            city,
+            state,
             args["job_pincode"],
             args["job_type"],
         )
@@ -241,7 +256,7 @@ class ClientPostJobResource(Resource):
         if process:
             return {"message": "Job and Skills added"}, 200
         return {"error": "Not Added"}, 400
-    
+
 
 class ClientUpdateDetailsResource(Resource):
     def patch(self, client_id):
@@ -263,9 +278,10 @@ class ClientUpdateDetailsResource(Resource):
         if updated:
             print("S")
             return {"message": "success", "data": decoded_token}, 200
-        
+
+
 class ClientUpdateJobDetailsResource(Resource):
-    def patch(self,job_id):
+    def patch(self, job_id):
         print("GOT REQ")
         auth_header = request.headers.get("Authorization")
         data = request.get_json()
@@ -273,11 +289,11 @@ class ClientUpdateJobDetailsResource(Resource):
         if not auth_header:
             print("MAH")
             return {"message": "Missing Authorization header"}, 401
-        
+
         if not data:
             print("NDP")
             return {"error": "No data provided"}, 400
-        
+
         token = auth_header.split(" ")[1]
 
         decoded_token = decode_token(token)
@@ -290,20 +306,22 @@ class ClientUpdateJobDetailsResource(Resource):
                     print("UPDATE SKILLS DONE")
                     return {"message": "Added Skills and details"}, 200
             return {"message": "success", "data": decoded_token}, 200
-            
+
+
 class ClientCandidatesByJobsResource(Resource):
-    def get(self,job_id):
+    def get(self, job_id):
         candidates = Client.get_candiates_by_job(job_id)
         if candidates:
             return candidates, 200
         return {"error": "No Candidates found"}, 400
-    
+
+
 class ClientChangePasswordResource(Resource):
-    def patch(self,client_id):
+    def patch(self, client_id):
         auth_header = request.headers.get("Authorization")
         parser = reqparse.RequestParser()
         parser.add_argument("new_password")
-        parser.add_argument("confirm_password") 
+        parser.add_argument("confirm_password")
         args = parser.parse_args()
         new_password = args["new_password"]
         confirm_password = args["confirm_password"]
@@ -319,17 +337,21 @@ class ClientChangePasswordResource(Resource):
 
         if new_password != confirm_password:
             return {"message": "password not same"}, 400
-        pass_update = Client.change_password(client_id,new_password)
+        pass_update = Client.change_password(client_id, new_password)
         if pass_update:
-            return {"message": "password updated succefully", "token":decoded_token}, 200
-        
+            return {
+                "message": "password updated succefully",
+                "token": decoded_token,
+            }, 200
+
+
 class ClientNameListResource(Resource):
     def get(self):
         client_names = Client.client_name_list()
         if client_names:
             return client_names
         return {"message": "No Clients found"}, 404
-    
+
 
 class ClientJobsByComapnyNameResource(Resource):
     def post(self):

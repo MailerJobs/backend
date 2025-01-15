@@ -36,7 +36,7 @@ class Jobs:
     def get_all_jobs():
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM jobs")
+        cursor.execute("SELECT * FROM jobs ORDER BY Posted_Date DESC")
         jobs = cursor.fetchall()
         for row in jobs:
             if "Posted_Date" in row and isinstance(row["Posted_Date"], datetime):

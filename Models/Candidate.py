@@ -140,6 +140,19 @@ class Candidate:
         cursor.close()
         conn.close()
         return True
+    
+    @staticmethod
+    def verify_candidate_like_job(candidate_id, job_id):
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM candidate_jobs WHERE can_id = %s AND job_id = %s",
+            (candidate_id, job_id),
+        )
+        liked_job = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return liked_job
 
     @staticmethod
     def get_candidate_liked_jobs(candidate_id):
