@@ -2,6 +2,13 @@ from flask_restful import Resource, reqparse,request
 from flask import jsonify, make_response
 from Models.Required_Skills import Skills
 
+class SkillsListOfJobResource(Resource):
+    def get(self):
+        skills = Skills.get_all_skills_by_job()
+        if not skills:
+            return {"message": "No skills found"}, 404
+        return skills, 200
+    
 class SkillsListResource(Resource):
     def get(self):
         skills = Skills.get_all_skills()

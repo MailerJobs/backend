@@ -47,6 +47,18 @@ class CandidateRegisterResource(Resource):
         parser.add_argument("pincode")
         args = parser.parse_args()
 
+        if (
+            not args["email"]
+            or not args["password"]
+            or not args["confirm_password"]
+            or not args["first_name"]
+            or not args["last_name"]
+            or not args["username"]
+            or not args["phone"]
+            or not args["pincode"]
+        ):
+            return make_response(jsonify({"message": "All fields are required"}), 422)
+
         existing_user = Candidate.already_registered(args["email"])
 
         if existing_user:
@@ -138,7 +150,7 @@ class CandidateLogoutResource(Resource):
             max_age=0,
             httponly=False,
             secure=True,
-            samesite='None',
+            samesite="None",
         )
         # response.delete_cookie(
         #     "token_user",
@@ -258,6 +270,12 @@ class CandidateLikedJobsResource(Resource):
         parser.add_argument("job_id")
         args = parser.parse_args()
 
+        already_liked = Candidate.verify_candidate_like_job(
+            args["can_id"], args["job_id"]
+        )
+        if already_liked:
+            return {"message": "Job Already Liked"}, 409
+        
         candidate_job = Candidate.post_candidate_liked_job(
             args["can_id"], args["job_id"]
         )
@@ -327,13 +345,14 @@ class CandiateAppliedJobsResource(Resource):
         if not candidate_jobs:
             return {"error": "No jobs"}, 400
         return candidate_jobs
-    
+
+
 class CandidateChangePasswordResource(Resource):
-    def patch(self,can_id):
+    def patch(self, can_id):
         auth_header = request.headers.get("Authorization")
         parser = reqparse.RequestParser()
         parser.add_argument("new_password")
-        parser.add_argument("confirm_password") 
+        parser.add_argument("confirm_password")
         args = parser.parse_args()
         new_password = args["new_password"]
         confirm_password = args["confirm_password"]
@@ -349,10 +368,14 @@ class CandidateChangePasswordResource(Resource):
 
         if new_password != confirm_password:
             return {"message": "password not same"}, 400
-        pass_update = Candidate.change_candidate_password(can_id,new_password)
+        pass_update = Candidate.change_candidate_password(can_id, new_password)
         if pass_update:
-            return {"message": "password updated succefully", "token":decoded_token}, 200
-        
+            return {
+                "message": "password updated succefully",
+                "token": decoded_token,
+            }, 200
+
+
 class CandidateEmailListResource(Resource):
     def get(self):
         candidate = Candidate.get_candidates_email()
