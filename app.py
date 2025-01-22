@@ -2,12 +2,16 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from config import Config
+from flask_mail import Mail, Message
 
 # from server import create_app
 
 app = Flask(__name__)
 
+app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 app.config.from_object(Config)
+
+mail = Mail(app)
 
 CORS(
     app,
@@ -25,7 +29,6 @@ CORS(
     },
 )
 
-app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 api = Api(app)
 
 from Resources.Latest_Jobs_Resources import LatestListResource, LatestResource
@@ -85,6 +88,7 @@ from Resources.CollegeResource import (
 
 from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
 
+from Resources.Maiil import MailResource
 ### Below are the api endpoints
 
 ## Jobs, Latest Jobs api endpoints
@@ -164,6 +168,8 @@ api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
 # End
+
+api.add_resource(MailResource, "/api/sendmail",resource_class_kwargs={'mail': mail})
 
 if __name__ == "__main__":
     app.run(debug=True)
