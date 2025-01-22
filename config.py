@@ -44,11 +44,7 @@ class Config():
     COLLEGE_RESUME_FOLDER = os.path.join(RESUME_FOLDER, 'college')
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
     ALLOWED_RESUME_EXTENSIONS = {'pdf'}
-    MAIL_SERVER = 'smtp.gmail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = 'jmailer057@gmail.com'
-    MAIL_PASSWORD = 'ymnc vdky bqzm kyoc'
+    
 
 os.makedirs(Config.COMPANY_LOGO, exist_ok=True)
 os.makedirs(Config.PROFILE_FOLDER, exist_ok=True)
