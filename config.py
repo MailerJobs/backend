@@ -27,7 +27,7 @@ class Config():
     # MYSQL_HOST = 'localhost'             # MySQL server host
     # MYSQL_DATABASE = 'mailerjobs'        # Your MySQL database name
     # MYSQL_USER = 'root'                  # MySQL username
-    # MYSQL_PASSWORD = 'db_pass'       # MySQL password (change it to your actual password) 147.79.68.252
+    # MYSQL_PASSWORD = 'Chandra_121'       # MySQL password (change it to your actual password)
     MYSQL_HOST = '147.79.68.252'       # MySQL server host
     MYSQL_DATABASE = 'new_mj_db'       # Your MySQL database name
     MYSQL_USER = 'new_mj_user'         # MySQL username
@@ -36,6 +36,7 @@ class Config():
     # current_dir = os.getcwd()
     FRONTEND = os.path.join(os.path.dirname(os.getcwd()), 'mailerweb')
     PUBLIC_FOLDER = os.path.join(FRONTEND, 'public')
+    # DEPLOY_UPLOAD = '/var/www/react-app/'
     UPLOAD_FOLDER = os.path.join(PUBLIC_FOLDER, 'uploads')
     COMPANY_LOGO = os.path.join(UPLOAD_FOLDER, 'company_logo')
     PROFILE_FOLDER = os.path.join(UPLOAD_FOLDER, 'profile_pic')
@@ -43,6 +44,7 @@ class Config():
     COLLEGE_RESUME_FOLDER = os.path.join(RESUME_FOLDER, 'college')
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
     ALLOWED_RESUME_EXTENSIONS = {'pdf'}
+    
 
 os.makedirs(Config.COMPANY_LOGO, exist_ok=True)
 os.makedirs(Config.PROFILE_FOLDER, exist_ok=True)
@@ -57,6 +59,3 @@ class TestingConfig:
     MYSQL_PASSWORD = 'Chandra_121' 
 
     # C:\Users\visha\OneDrive\Documents\dumps\Dump20241211
-
-
-    # DEPLOY_UPLOAD = '/var/www/react-app/'
