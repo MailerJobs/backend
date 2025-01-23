@@ -27,16 +27,15 @@ class Config():
     # MYSQL_HOST = 'localhost'             # MySQL server host
     # MYSQL_DATABASE = 'mailerjobs'        # Your MySQL database name
     # MYSQL_USER = 'root'                  # MySQL username
-    # MYSQL_PASSWORD = 'db_pass'       # MySQL password (change it to your actual password)
+    # MYSQL_PASSWORD = 'db_pass'       # MySQL password (change it to your actual password) 147.79.68.252
     MYSQL_HOST = '147.79.68.252'       # MySQL server host
-    MYSQL_DATABASE = 'new_mj_db'       # Your MySQL database name
-    MYSQL_USER = 'new_mj_user'         # MySQL username
+    MYSQL_DATABASE = 'mailerjobs'       # Your MySQL database name
+    MYSQL_USER = 'root'         # MySQL username
     MYSQL_PASSWORD = 'Nextlearn@123'   # MySQL password (change it to your actual password)
     # SECRET_KEY = "d9a6d1f1f5dab18e3659868484ccc85a"
     # current_dir = os.getcwd()
     FRONTEND = os.path.join(os.path.dirname(os.getcwd()), 'mailerweb')
     PUBLIC_FOLDER = os.path.join(FRONTEND, 'public')
-    # DEPLOY_UPLOAD = '/var/www/react-app/'
     UPLOAD_FOLDER = os.path.join(PUBLIC_FOLDER, 'uploads')
     COMPANY_LOGO = os.path.join(UPLOAD_FOLDER, 'company_logo')
     PROFILE_FOLDER = os.path.join(UPLOAD_FOLDER, 'profile_pic')
@@ -53,9 +52,11 @@ os.makedirs(Config.COLLEGE_RESUME_FOLDER,exist_ok=True)
 class TestingConfig:
     TESTING = True
     MYSQL_HOST = "localhost"
-    MYSQL_DATABASE = 'mailerjobs_test'
+    MYSQL_DATABASE = 'mahi'
     MYSQL_USER = 'root'              # MySQL username
-    MYSQL_PASSWORD = 'Chandra_121' 
+    MYSQL_PASSWORD = 'root' 
 
     # C:\Users\visha\OneDrive\Documents\dumps\Dump20241211
 
+
+    # DEPLOY_UPLOAD = '/var/www/react-app/'
