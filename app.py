@@ -1,12 +1,22 @@
-from flask import Flask
+from flask import Flask,send_from_directory
 from flask_restful import Api
 from flask_cors import CORS
 from config import Config
 from flask_mail import Mail, Message
+import os
 
 # from server import create_app
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='dist',static_url_path='')
+@app.route('/')
+@app.route('/<path:path>')
+def serve_frontend(path=''):
+    # Check if the file exists in the dist folder
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        # Serve the index.html for any unmatched routes
+        return send_from_directory(app.static_folder, 'index.html')
 
 app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
 app.config.from_object(Config)
