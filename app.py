@@ -4,6 +4,8 @@ from flask_cors import CORS
 from config import Config
 from flask_mail import Mail, Message
 import os
+import jwt
+print("file : ",jwt.__file__)
 
 # from server import create_app
 
