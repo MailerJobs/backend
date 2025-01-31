@@ -36,7 +36,7 @@ class Config():
     # current_dir = os.getcwd()
     FRONTEND = os.path.join(os.path.dirname(os.getcwd()), 'mailerweb')
     PUBLIC_FOLDER = os.path.join(FRONTEND, 'public')
-    # DEPLOY_UPLOAD = '/var/www/react-app/'
+    DEPLOY_UPLOAD = '/var/www/react-app/'
     UPLOAD_FOLDER = os.path.join(PUBLIC_FOLDER, 'uploads')
     COMPANY_LOGO = os.path.join(UPLOAD_FOLDER, 'company_logo')
     PROFILE_FOLDER = os.path.join(UPLOAD_FOLDER, 'profile_pic')
