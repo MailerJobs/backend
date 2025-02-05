@@ -44,7 +44,6 @@ class Config():
     COLLEGE_RESUME_FOLDER = os.path.join(RESUME_FOLDER, 'college')
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
     ALLOWED_RESUME_EXTENSIONS = {'pdf'}
-    ALLOWED_HOSTS = ["mailerjobs.com"]
 
 
 os.makedirs(Config.COMPANY_LOGO, exist_ok=True)
