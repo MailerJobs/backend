@@ -31,7 +31,7 @@ CORS(
     resources={
         r"/*": {
             "origins": [
-               
+                "https://mailerjobs.com/api/",
                 "http://localhost:5173",
                 "http://localhost:5174",
                 "http://localhost:4173",
@@ -99,7 +99,7 @@ from Resources.CollegeResource import (
     CollegeNamesListResource,
 )
 
-from Resources.StudentsResource import StudentResource, StudentsByCollegeResource, CheckUniqueFieldsResource
+from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
 
 from Resources.Maiil import MailResource
 ### Below are the api endpoints
@@ -181,7 +181,6 @@ api.add_resource(StudentResource, "/api/student-add")
 api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
-api.add_resource(CheckUniqueFieldsResource, "/api/check-unique-fields")
 # End
 
 api.add_resource(MailResource, "/api/sendmail",resource_class_kwargs={'mail': mail})
