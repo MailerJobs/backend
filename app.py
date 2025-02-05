@@ -31,8 +31,8 @@ CORS(
     resources={
         r"/*": {
             "origins": [
-                "https://mailerjobs.com/api/",
-                "https://api.mailerjobs.com/api/",
+                "https://mailerjobs.com/",
+                "https://api.mailerjobs.com/",
                 "http://localhost:5173",
                 "http://localhost:5174",
                 "http://localhost:4173",
