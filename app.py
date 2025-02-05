@@ -99,7 +99,7 @@ from Resources.CollegeResource import (
     CollegeNamesListResource,
 )
 
-from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
+from Resources.StudentsResource import StudentResource, StudentsByCollegeResource, CheckUniqueFieldsResource
 
 from Resources.Maiil import MailResource
 ### Below are the api endpoints
@@ -172,6 +172,7 @@ api.add_resource(ClientJobsByComapnyNameResource, "/api/client-jobs-by-name")
 api.add_resource(CollegesListReosurce, "/api/colleges")
 api.add_resource(CollegeResource, "/api/college/<string:college_name>")
 api.add_resource(CollegeNamesListResource, "/api/college-names")
+
 # End
 
 ## College_Student api endpoints
@@ -180,6 +181,7 @@ api.add_resource(StudentResource, "/api/student-add")
 api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
+api.add_resource(CheckUniqueFieldsResource, "/api/check-unique-fields")
 # End
 
 api.add_resource(MailResource, "/api/sendmail",resource_class_kwargs={'mail': mail})

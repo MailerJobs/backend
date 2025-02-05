@@ -55,3 +55,21 @@ class StudentsByCollegeResource(Resource):
         if students:
             return students, 200
         return {"error": "Students Not Found"}, 400
+
+class CheckUniqueFieldsResource(Resource):
+    def post(self):
+        if not request.is_json:
+            return jsonify({"error": "Request must be JSON"}), 415
+        data = request.json
+        username = data.get('username')
+        email = data.get('email')
+        phone_no = data.get('phone_no')
+        usn = data.get('usn')
+
+        # Check for conflicts in the database
+        conflicts = Students.check_unique_fields(username, email, phone_no, usn)
+        
+        if conflicts:
+            return jsonify({"exists": True, "conflicts": conflicts}), 200
+        else:
+            return jsonify({"exists": False}), 200
