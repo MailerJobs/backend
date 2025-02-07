@@ -38,7 +38,7 @@ CORS(
                 "http://localhost:4173",
                 "https://nextlearn.co.in",
                 "https://api.nextlearn.co.in",
-            ]
+            ]   
         }
     },
 )
