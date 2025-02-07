@@ -187,4 +187,5 @@ api.add_resource(
 api.add_resource(MailResource, "/api/sendmail",resource_class_kwargs={'mail': mail})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
+
