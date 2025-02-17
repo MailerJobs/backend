@@ -6,8 +6,8 @@ from flask_mail import Mail, Message
 import os
 import jwt
 print("file : ",jwt.__file__)
+from flask_jwt_extended import JWTManager
 
-# from server import create_app
 
 app = Flask(__name__,static_folder='dist',static_url_path='')
 @app.route('/')
@@ -21,9 +21,12 @@ def serve_frontend(path=''):
         return send_from_directory(app.static_folder, 'index.html')
 
 app.secret_key = "d9a6d1f1f5dab18e3659868484ccc85a"
+app.config["JWT_SECRET_KEY"] = "your_secret_key"
 app.config.from_object(Config)
-
+jwt = JWTManager(app)
 mail = Mail(app)
+
+
 
 CORS(
     app,
@@ -101,8 +104,12 @@ from Resources.CollegeResource import (
 )
 
 from Resources.StudentsResource import StudentResource, StudentsByCollegeResource
-
+from Resources.AdminResource import register_admin
 from Resources.Maiil import MailResource
+from Resources.blogRoutes import blog_bp
+from Resources.AdminResource import admin_bp
+
+
 ### Below are the api endpoints
 
 ## Jobs, Latest Jobs api endpoints
@@ -123,7 +130,6 @@ api.add_resource(JobViewResource, "/api/jobview/<int:job_id>")
 api.add_resource(SkillsListResource, "/api/skills")
 api.add_resource(SkillsResource, "/api/skill/<int:id>")
 # End
-
 ## Candidate api endpoints
 # Start
 api.add_resource(CandidateListResource, "/api/candidates")
@@ -183,6 +189,13 @@ api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
 # End
+
+
+app.register_blueprint(blog_bp, url_prefix='/api')
+
+app.register_blueprint(admin_bp)  # Now admin routes will be under /api/admin
+
+
 
 api.add_resource(MailResource, "/api/sendmail",resource_class_kwargs={'mail': mail})
 

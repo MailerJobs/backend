@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Allow: /blog/
+Sitemap: https://mailerjobs.com/sitemap.xml
