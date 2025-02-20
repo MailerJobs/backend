@@ -8,7 +8,7 @@ import jwt
 print("file : ",jwt.__file__)
 from flask_jwt_extended import JWTManager
 
-
+from Resources.student_routes import student_routes
 app = Flask(__name__,static_folder='dist',static_url_path='')
 @app.route('/')
 @app.route('/<path:path>')
@@ -110,8 +110,9 @@ from Resources.blogRoutes import blog_bp
 from Resources.AdminResource import admin_bp
 
 
-### Below are the api endpoints
 
+### Below are the api endpoints
+app.register_blueprint(student_routes)
 ## Jobs, Latest Jobs api endpoints
 # Start
 api.add_resource(LatestListResource, "/api/latest_jobs")
@@ -189,7 +190,7 @@ api.add_resource(
     StudentsByCollegeResource, "/api/student-college/<string:college_name>"
 )
 # End
-
+  
 
 app.register_blueprint(blog_bp, url_prefix='/api')
 
