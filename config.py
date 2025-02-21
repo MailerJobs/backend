@@ -51,6 +51,13 @@ os.makedirs(Config.PROFILE_FOLDER, exist_ok=True)
 os.makedirs(Config.RESUME_FOLDER,exist_ok=True)
 os.makedirs(Config.COLLEGE_RESUME_FOLDER,exist_ok=True)
 
+
+MAIL_SERVER = 'smtp.example.com'  # Your SMTP server
+MAIL_PORT = 587  # SMTP port, could be different depending on the provider
+MAIL_USE_TLS = True  # Use TLS encryption
+MAIL_USERNAME = os.getenv('USERNAME')  # Your email username
+MAIL_PASSWORD = os.getenv('PASSWORD') 
+
 class TestingConfig:
     TESTING = True
     MYSQL_HOST = "localhost"
