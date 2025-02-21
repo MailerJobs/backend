@@ -329,7 +329,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
       "@type": "Organization",
       "name": "Mailer Jobs",
       "url": "https://mailerjobs.com",
-      "logo": "https://mailerjobs.com/MJ.jpg",
+      "logo": "https://mailerjobs.com/mj.png",
       "sameAs": [
         "https://www.instagram.com/mailerjob/",
         "https://www.linkedin.com/company/mailer-jobs/",
