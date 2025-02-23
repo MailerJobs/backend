@@ -109,8 +109,6 @@ from Resources.Maiil import MailResource
 from Resources.blogRoutes import blog_bp
 from Resources.AdminResource import admin_bp
 
-
-
 ### Below are the api endpoints
 app.register_blueprint(student_routes)
 ## Jobs, Latest Jobs api endpoints
