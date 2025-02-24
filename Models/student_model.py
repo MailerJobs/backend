@@ -30,3 +30,18 @@ def register_student(name, dob, gender, phone, email, institution, degree, gradu
     conn.close()
 
     return student_id  # Return the generated Student ID
+
+def get_all_students():
+    """Fetches all registered student data."""
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    query = """
+    SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path
+    FROM students
+    """
+    cursor.execute(query)
+    students = cursor.fetchall()
+    conn.close()
+
+    return students

@@ -1,7 +1,8 @@
 from flask import Blueprint, request, jsonify
-from Models.student_model import register_student
+from Models.student_model import register_student, get_all_students
 import os
 from config import Config;
+
 
 student_routes = Blueprint("student_routes", __name__)
 
@@ -40,5 +41,29 @@ def register():
         # Send response
         return jsonify({"message": "Registration successful", "student_id": student_id}), 201
 
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+    
+@student_routes.route("/api/jobfair/data", methods=["GET"])
+def get_job_fair_data():
+    """Fetches all registered student data."""
+    try:
+        students = get_all_students()
+        result = [
+            {
+                "name": student.name,
+                "dob": student.dob,
+                "gender": student.gender,
+                "phone": student.phone,
+                "email": student.email,
+                "institution": student.institution,
+                "degree": student.degree,
+                "graduation_year": student.graduation_year,
+                "reg_no": student.reg_no,
+                "resume_url": student.resume_path
+            } for student in students
+        ]
+        return jsonify(result), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
