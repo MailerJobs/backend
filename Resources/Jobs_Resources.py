@@ -115,8 +115,8 @@ class JobSearchBarResource(Resource):
         return searchBarJobs
     
 class JobViewResource(Resource):
-    def get(self, job_title):
-        job = Jobs.get_job_by_title(job_title)
+    def get(self, job_id):
+        job = Jobs.get_job_by_job_id(job_id)
         if job:
             return job
         return {"message": "Job Not Found"}, 400
