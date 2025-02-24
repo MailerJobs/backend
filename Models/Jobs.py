@@ -265,14 +265,15 @@ class Jobs:
         return True
     
     @staticmethod
-    def get_job_by_job_id(job_id):
+    def get_job_by_title(cls,job_title):
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM jobs where id = %s", (job_id,))
+        cursor.execute("SELECT * FROM jobs where id = %s", (job_title,))
         job = cursor.fetchone()
         if "Posted_Date" in job and isinstance(job["Posted_Date"], datetime):
                 job["Posted_Date"] = job["Posted_Date"].strftime("%Y-%m-%d %H:%M:%S")
         cursor.close()
         conn.close()
+        return cls.query.filter_by(job_title=job_title).first()
         return job
     
