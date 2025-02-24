@@ -7,9 +7,11 @@ import os
 import jwt
 print("file : ",jwt.__file__)
 from flask_jwt_extended import JWTManager
+from flask_compress import Compress
 
 from Resources.student_routes import student_routes
 app = Flask(__name__,static_folder='dist',static_url_path='')
+Compress(app) 
 @app.route('/')
 @app.route('/<path:path>')
 def serve_frontend(path=''):
