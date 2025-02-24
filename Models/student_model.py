@@ -11,7 +11,7 @@ def get_db_connection():
     )
     return connection
 
-def register_student(name, dob, gender, phone, email, institution, degree, graduation_year, gpa, resume_path):
+def register_student(name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path):
     """Registers a student and generates a unique ID."""
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
@@ -20,10 +20,10 @@ def register_student(name, dob, gender, phone, email, institution, degree, gradu
 
     query = """
     INSERT INTO students 
-    (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, gpa, resume_path) 
+    (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path) 
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
-    values = (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, gpa, resume_path)
+    values = (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path)
 
     cursor.execute(query, values)
     conn.commit()

@@ -20,10 +20,10 @@ def register():
         institution = request.form.get("institution")
         degree = request.form.get("degree")
         graduation_year = request.form.get("graduation_year")
-        gpa = request.form.get("gpa")
+        reg_no = request.form.get("reg_no")
         resume = request.files.get("resume")
 
-        if not all([name, dob, gender, phone, email, institution, degree, graduation_year, resume]):
+        if not all([name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume]):
             return jsonify({"error": "All required fields must be filled"}), 400
        
        # Create the JobFair directory inside the RESUME_FOLDER
@@ -35,7 +35,7 @@ def register():
         resume.save(resume_path)
 
         # Register student and get student ID
-        student_id = register_student(name, dob, gender, phone, email, institution, degree, graduation_year, gpa, resume_path)
+        student_id = register_student(name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path)
 
         # Send response
         return jsonify({"message": "Registration successful", "student_id": student_id}), 201
