@@ -51,18 +51,19 @@ def get_job_fair_data():
     """Fetches all registered student data."""
     try:
         students = get_all_students()
+        print(students)  # Debug: print the fetched data
         result = [
             {
-                "name": student.name,
-                "dob": student.dob,
-                "gender": student.gender,
-                "phone": student.phone,
-                "email": student.email,
-                "institution": student.institution,
-                "degree": student.degree,
-                "graduation_year": student.graduation_year,
-                "reg_no": student.reg_no,
-                "resume_url": student.resume_path
+                "name": student['name'],
+                "dob": student['dob'],
+                "gender": student['gender'],
+                "phone": student['phone'],
+                "email": student['email'],
+                "institution": student['institution'],
+                "degree": student['degree'],
+                "graduation_year": student['graduation_year'],
+                "reg_no": student['reg_no'],
+                "resume_url": student['resume_path']
             } for student in students
         ]
         return jsonify(result), 200
