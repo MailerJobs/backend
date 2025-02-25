@@ -1,12 +1,13 @@
 from flask import Blueprint, request, jsonify
-from Models.student_model import register_student, get_all_students
+from Models.student_model import register_student
+from Models.student_model import get_all_students
 import os
 from config import Config;
 
 
 student_routes = Blueprint("student_routes", __name__)
 
-UPLOAD_FOLDER = "uploads/"  # Folder to store resumes
+UPLOAD_FOLDER = "uploads/"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @student_routes.route("/api/jobfair/register", methods=["POST"])
@@ -27,7 +28,7 @@ def register():
         if not all([name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume]):
             return jsonify({"error": "All required fields must be filled"}), 400
        
-       # Create the JobFair directory inside the RESUME_FOLDER
+
         jobfair_folder = os.path.join(Config.RESUME_FOLDER, "JobFair")
         os.makedirs(jobfair_folder, exist_ok=True)
 
@@ -66,4 +67,5 @@ def get_job_fair_data():
         ]
         return jsonify(result), 200
     except Exception as e:
+        print(f"Error fetching job fair data: {e}")
         return jsonify({"error": str(e)}), 500
