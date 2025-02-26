@@ -15,6 +15,10 @@ Disallow: /*?_gl=
 Disallow: /*?_ga=
 Disallow: /*?_bdsid=
 Disallow: /detail.php
+Disallow: /*?feed=
+Disallow: /*?job_
+Disallow: /*?skill_
+Disallow: /*?sh_atts=
 
 Allow: /blog/
 Sitemap: https://mailerjobs.com/sitemap.xml
