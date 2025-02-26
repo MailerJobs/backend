@@ -27,17 +27,19 @@ def register():
 
         if not all([name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume]):
             return jsonify({"error": "All required fields must be filled"}), 400
-       
 
         jobfair_folder = os.path.join(Config.RESUME_FOLDER, "JobFair")
         os.makedirs(jobfair_folder, exist_ok=True)
 
         # Save resume file
-        resume_path = os.path.join(jobfair_folder, resume.filename)
+        resume_name = resume.filename
+        resume_path = os.path.join(jobfair_folder, resume_name)
         resume.save(resume_path)
 
         # Register student and get student ID
-        student_id = register_student(name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_path)
+        student_id = register_student(
+            name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
+        )
 
         # Send response
         return jsonify({"message": "Registration successful", "student_id": student_id}), 201
@@ -64,7 +66,7 @@ def get_job_fair_data():
                 "degree": student['degree'],
                 "graduation_year": student['graduation_year'],
                 "reg_no": student['reg_no'],
-                "resume_url": student['resume_path']
+                "resume_url": student['resume_name']
             } for student in students
         ]
         return jsonify(result), 200
