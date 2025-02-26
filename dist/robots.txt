@@ -11,6 +11,10 @@ Disallow: /post-a-new-job/
 Disallow: /2022-2/
 Disallow: /training/
 Disallow: /jobs-2/
+Disallow: /*?_gl=
+Disallow: /*?_ga=
+Disallow: /*?_bdsid=
+Disallow: /detail.php
 
 Allow: /blog/
 Sitemap: https://mailerjobs.com/sitemap.xml

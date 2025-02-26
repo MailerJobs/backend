@@ -51,7 +51,8 @@ def get_job_fair_data():
     """Fetches all registered student data."""
     try:
         students = get_all_students()
-        print(students)  # Debug: print the fetched data
+        print(students)
+        print()  # Debug: print the fetched data
         result = [
             {
                 "name": student['name'],
