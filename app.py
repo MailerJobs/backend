@@ -8,6 +8,7 @@ import jwt
 print("file : ",jwt.__file__)
 from flask_jwt_extended import JWTManager
 from flask_compress import Compress
+from flask import Flask, render_template
 
 from Resources.student_routes import student_routes
 app = Flask(__name__,static_folder='dist',static_url_path='')
@@ -28,7 +29,16 @@ app.config.from_object(Config)
 jwt = JWTManager(app)
 mail = Mail(app)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """Custom 404 error handler."""
+    return render_template('404.html'), 404
 
+
+# Example route that will trigger a 404 error
+@app.route('/nonexistent')
+def nonexistent():
+    return "This route does not exist.", 404
 
 CORS(
     app,
