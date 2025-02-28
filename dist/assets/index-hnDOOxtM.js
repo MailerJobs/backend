@@ -568,12 +568,12 @@ Yours sincerely,
       <br /><h3>2. Use a Professional Format</h3>
       <br /><p>A professional cover letter format for a job includes:</p>
       <ul>
-        <li>Your contact information at the top.</li>
-        <li>The date of writing.</li>
-        <li>The employer's name, title, and company details.</li>
-        <li>A formal salutation.</li>
-        <li>A concise introduction, body paragraphs, and conclusion.</li>
-        <li>A closing statement followed by your signature.</li>
+        <li>🔘 Your contact information at the top.</li>
+        <li>🔘 The date of writing.</li>
+        <li>🔘The employer's name, title, and company details.</li>
+        <li>🔘 A formal salutation.</li>
+        <li>🔘 A concise introduction, body paragraphs, and conclusion.</li>
+        <li>🔘 A closing statement followed by your signature.</li>
       </ul>
 <br />
       <h3>3. Craft an Engaging Opening</h3>
@@ -614,22 +614,21 @@ I have attached my CV for your review and would welcome the opportunity to discu
       <h3>Dos and Don’ts in a Cover Letter</h3><br />
       <h4>Dos:</h4>
       <ul>
-        <li>Personalize your cover letter for each application.</li>
-        <li>Use professional language and a formal tone.</li>
-        <li>Proofread to avoid spelling and grammar errors.</li>
+        <li>✅ Personalize your cover letter for each application.</li>
+        <li>✅ Use professional language and a formal tone.</li>
+        <li>✅ Proofread to avoid spelling and grammar errors.</li>
       </ul>
 <br />
       <h4>Don’ts:</h4>
       <ul>
-        <li>Don’t repeat your CV word-for-word.</li>
-        <li>Don’t use generic phrases like “To Whom It May Concern.”</li>
-        <li>Don’t include irrelevant details.</li>
+        <li>❎ Don’t repeat your CV word-for-word.</li>
+        <li>❎ Don’t use generic phrases like “To Whom It May Concern.”</li>
+        <li>❎ Don’t include irrelevant details.</li>
       </ul>
 <br />
-      <h2>Conclusion</h2>
       <br /><p>A well-crafted cover letter remains a powerful tool for creating a positive first impression. By including essential elements such as contact information, a professional greeting, and examples of achievements, you can highlight your suitability for the role.</p>
 <br />
-      <p>Leveraging AI writing tools like ChatGPT and Gemini can make the process even easier. However, always personalize the final version to reflect your unique voice and experiences.</p>`}],ige=()=>u.jsxs(u.Fragment,{children:[u.jsxs(Fs,{children:[u.jsx("title",{children:O2[0].title}),u.jsx("meta",{name:"description",content:"Read the latest blog posts from our platform. Stay updated with industry insights and tips."})]}),u.jsx("div",{className:"min-h-screen bg-gray-100 py-10",children:O2.map(e=>u.jsx(age,{blog:e},e.id))})]});var ZC={};Object.defineProperty(ZC,"__esModule",{value:!0});var sge=function(t){console.warn("[react-gtm]",t)};ZC.default=sge;var lge=ZC,cge=uge(lge);function uge(e){return e&&e.__esModule?e:{default:e}}var dge={tags:function(t){var n=t.id,r=t.events,o=t.dataLayer,a=t.dataLayerName,i=t.preview,s=t.auth,l="&gtm_auth="+s,c="&gtm_preview="+i;n||(0,cge.default)("GTM Id is required");var d=`
+      <p>Leveraging AI writing tools like ChatGPT and Gemini can make the process even easier. However, always personalize the final version to reflect your unique voice and experiences.</p>`}],ige=()=>u.jsxs(u.Fragment,{children:[u.jsxs(Fs,{children:["//         ",u.jsx("title",{children:O2[0].title}),"//         ",u.jsx("meta",{name:"description",content:"Read the latest blog posts from our platform. Stay updated with industry insights and tips."}),"//       "]}),u.jsx("div",{className:"min-h-screen bg-gray-100 py-10",children:O2.map(e=>u.jsx(age,{blog:e},e.id))})]});var ZC={};Object.defineProperty(ZC,"__esModule",{value:!0});var sge=function(t){console.warn("[react-gtm]",t)};ZC.default=sge;var lge=ZC,cge=uge(lge);function uge(e){return e&&e.__esModule?e:{default:e}}var dge={tags:function(t){var n=t.id,r=t.events,o=t.dataLayer,a=t.dataLayerName,i=t.preview,s=t.auth,l="&gtm_auth="+s,c="&gtm_preview="+i;n||(0,cge.default)("GTM Id is required");var d=`
       <iframe src="https://www.googletagmanager.com/ns.html?id=`+n+l+c+`&gtm_cookies_win=x"
         height="0" width="0" style="display:none;visibility:hidden" id="tag-manager"></iframe>`,p=`
       (function(w,d,s,l,i){w[l]=w[l]||[];
