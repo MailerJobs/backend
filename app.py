@@ -126,7 +126,7 @@ api.add_resource(JobFilterResource, "/api/filterjobs")
 api.add_resource(JobSectorResource, "/api/jobsector/<string:sector>")
 api.add_resource(JobSearchResource, "/api/searchjobs")
 api.add_resource(JobSearchBarResource, "/api/searchbarjobs")
-api.add_resource(JobViewResource, "/api/jobview/<string:job_title>")
+api.add_resource(JobViewResource, "/api/jobview/<int:job_id>")
 # End
 
 ## Skills api endpoints
