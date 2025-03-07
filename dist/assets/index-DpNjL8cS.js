@@ -500,7 +500,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
                                ease-in-out duration-500\r
                                font-bold py-2 px-7 rounded-full\r
                                bg-gradient-to-r from-footer-back to-purple-button\r
-                               hover:bg-gradient-to-r hover:from-purple-button hover:to-footer-back`,children:"Apply"})]})]}),u.jsx("div",{className:"w-full h-[1px] bg-gray-300"})]}),u.jsxs("div",{className:" w-full",children:[u.jsx("h1",{className:"font-inter font-bold text-2xl",children:"Job Details"}),u.jsxs("div",{className:"mt-2",children:[u.jsxs("h1",{children:[u.jsx("strong",{children:"Salary :"}),t.salary]}),u.jsxs("h1",{children:[u.jsx("strong",{children:"Experience :"}),t.experience]}),u.jsxs("h1",{children:[u.jsx("strong",{children:"Education Level :"}),t.education]})]}),u.jsx("h1",{className:"font-inter text-xl font-bold my-4",children:"About the role"}),u.jsx("p",{dangerouslySetInnerHTML:{__html:t.job_description},className:"font-inter"}),u.jsx("h1",{className:"font-inter text-xl font-bold my-4",children:"Required skills"}),u.jsx("div",{className:"flex gap-5 flex-wrap",children:r?r.map((S,C)=>u.jsx("div",{className:"bg-gray-400 px-3 py-2 rounded-full",children:u.jsx("h1",{className:"font-inter",children:S.skill_name})},C)):u.jsx("div",{children:"Loading..."})})]})]}):u.jsx("div",{children:"Loading..."})},tB=[{id:1,title:"How To Write a Cover Letter (2025)",summary:"Learn how to craft a compelling cover letter that stands out in 2025.",date:"February 19, 2025",image_url:"/blog1.jpg",content:`
+                               hover:bg-gradient-to-r hover:from-purple-button hover:to-footer-back`,children:"Apply"})]})]}),u.jsx("div",{className:"w-full h-[1px] bg-gray-300"})]}),u.jsxs("div",{className:" w-full",children:[u.jsx("h1",{className:"font-inter font-bold text-2xl",children:"Job Details"}),u.jsxs("div",{className:"mt-2",children:[u.jsxs("h1",{children:[u.jsx("strong",{children:"Salary :"}),t.salary]}),u.jsxs("h1",{children:[u.jsx("strong",{children:"Experience :"}),t.experience]}),u.jsxs("h1",{children:[u.jsx("strong",{children:"Education Level :"}),t.education]})]}),u.jsx("h1",{className:"font-inter text-xl font-bold my-4",children:"About the role"}),u.jsx("p",{dangerouslySetInnerHTML:{__html:t.job_description},className:"font-inter"}),u.jsx("h1",{className:"font-inter text-xl font-bold my-4",children:"Required skills"}),u.jsx("div",{className:"flex gap-5 flex-wrap",children:r?r.map((S,C)=>u.jsx("div",{className:"bg-gray-400 px-3 py-2 rounded-full",children:u.jsx("h1",{className:"font-inter",children:S.skill_name})},C)):u.jsx("div",{children:"Loading..."})})]})]}):u.jsx("div",{children:"Loading..."})},tB=[{id:1,title:"How To Write a Cover Letter (2025)",summary:"Learn how to craft a compelling cover letter that stands out in 2025.",date:"February 19, 2025",image_url:"/blog1.webp",content:`
         <br />
         <p>A well-crafted cover letter can set you apart in a competitive job market, showcasing your qualifications and personality. Learning how to make a cover letter for a job is an essential skill for job seekers, enabling you to communicate your value effectively.</p>
         <br />
@@ -508,9 +508,9 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
         <br />
         <h2>What is a Cover Letter?</h2>
         <br />
-        <p>A cover letter is a document submitted alongside your CV or resume when applying for a job. Its purpose is to introduce you to potential employers, highlight your qualifications, and explain your interest in the position. Unlike a CV, which lists your experience, a cover letter gives you an opportunity to personalise your application and convey your enthusiasm for the role.</p>
+        <p>A cover letter is a document submitted alongside your CV or resume when <a style="color:blue" href="https://mailerjobs.com/jobs">applying for a job</a>. Its purpose is to introduce you to potential employers, highlight your qualifications, and explain your interest in the position. Unlike a CV, which lists your experience, a cover letter gives you an opportunity to personalise your application and convey your enthusiasm for the role.</p>
         <br />
-        <p>A great cover letter complements your CV by providing context for your skills and achievements. It bridges the gap between your qualifications and the specific requirements of the role, making it an invaluable tool in your job search.</p>
+        <p>A great cover letter complements your CV by providing context for your skills and achievements. It bridges the gap between your qualifications and the specific requirements of the role, making it an invaluable tool in your <a style="color:blue" href="https://mailerjobs.com/">job search.</a></p>
         <br />
         <h2>Why a Cover Letter is Important</h2>
         <br />
@@ -567,12 +567,12 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
         <br /><h3>2. Use a Professional Format</h3>
         <br /><p>A professional cover letter format for a job includes:</p>
         <ul>
-          <li>🔘 Your contact information at the top.</li>
-          <li>🔘 The date of writing.</li>
-          <li>🔘 The employer's name, title, and company details.</li>
-          <li>🔘 A formal salutation.</li>
-          <li>🔘 A concise introduction, body paragraphs, and conclusion.</li>
-          <li>🔘 A closing statement followed by your signature.</li>
+          <li> Your contact information at the top.</li>
+          <li> The date of writing.</li>
+          <li> The employer's name, title, and company details.</li>
+          <li> A formal salutation.</li>
+          <li> A concise introduction, body paragraphs, and conclusion.</li>
+          <li> A closing statement followed by your signature.</li>
         </ul>
         <br />
         <h3>3. Craft an Engaging Opening</h3>
@@ -655,37 +655,37 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
     [Your Name]
         </pre>
         <br />
-        <h3>Dos and Don’ts in a Cover Letter</h3><br />
-        <h4>Dos:</h4>
+        <h2>Dos and Don’ts in a Cover Letter</h2><br />
+        <h3>Dos:</h3>
         <ul>
-          <li>✅ Personalize your cover letter for each application.</li>
-          <li>✅ Use professional language and a formal tone.</li>
-          <li>✅ Proofread to avoid spelling and grammar errors.</li>
+          <li style="list-style:none">✅ Personalize your cover letter for each application.</li>
+          <li style="list-style:none">✅ Use professional language and a formal tone.</li>
+          <li style="list-style:none">✅ Proofread to avoid spelling and grammar errors.</li>
         </ul>
         <br />
-        <h4>Don’ts:</h4>
+        <h3>Don’ts:</h3>
         <ul>
-          <li>❎ Don’t repeat your CV word-for-word.</li>
-          <li>❎ Don’t use generic phrases like “To Whom It May Concern.”</li>
-          <li>❎ Don’t include irrelevant details.</li>
+          <li style="list-style:none">❎ Don’t repeat your CV word-for-word.</li>
+          <li style="list-style:none">❎ Don’t use generic phrases like “To Whom It May Concern.”</li>
+          <li style="list-style:none">❎ Don’t include irrelevant details.</li>
         </ul>
         <br />
         <p>A well-crafted cover letter remains a powerful tool for creating a positive first impression. By including essential elements such as contact information, a professional greeting, and examples of achievements, you can highlight your suitability for the role.</p>
         <br />
-        <p>Leveraging AI writing tools like ChatGPT and Gemini can make the process even easier. However, always personalize the final version to reflect your unique voice and experiences.</p>`},{id:2,title:"Why Your Job Applications Are Getting Rejected (And How to Fix It)",summary:"Discover common reasons for job application rejections and tips on how to improve your chances.",date:"March 3, 2025",image_url:"/blog2.jpg",content:`
+        <p>Leveraging AI writing tools like ChatGPT and Gemini can make the process even easier. However, always personalize the final version to reflect your unique voice and experiences.</p>`},{id:2,title:"Why Your Job Applications Are Getting Rejected (And How to Fix It)",summary:"Discover common reasons for job application rejections and tips on how to improve your chances.",date:"March 3, 2025",image_url:"/blog2.webp",content:`
           <p>Why Your Job Applications Are Getting Rejected (And How to Fix It)</p>
           <p>You've spent endless hours painstakingly preparing your resume, composing a moving cover letter, and applying for jobs that fit your skill set. Still, you have received no responses from any of the employers.</p>
           <p>What could possibly be going wrong?</p>
           <p>Job rejection is disheartening, to say the least, but letting them teach you by recognizing faults is quite effective in modifying your strategy. Here are some common pitfalls that applicants face-and what to do to fix them.</p>
           <ol>
-            <li>💡Sending a Generic Resume and Cover Letter</li>
+            <h2>💡Sending a Generic Resume and Cover Letter</h2>
             <p>By the way, applying for jobs doesn't work by using a one-size-fits-all method. Employers can receive hundreds of applications, and a generic resume is unlikely to get anyone's attention.</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Customize each resume and cover letter as per every individual position.</li>
         <li>Emphasize relevant skills and experiences that correspond with the job description.</li>
       </ul>
-            <li>💡Not Optimizing for ATS</li>
+            <h2>💡Not Optimizing for ATS</h2>
             <p>Many companies use ATS software to weed out resumes before they are ever reviewed by human recruiters. If your application is incorrectly formatted, it may simply get discarded without anyone reading it.</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
@@ -693,7 +693,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
         <li>Avoid using graphics, tables, or columns that will be difficult for the ATS to read.</li>
         <li>Include keywords that match those in the job description within your resume.</li>
       </ul>
-            <li>💡Failing to Customize Your Resume Using AI Tools</li>
+            <h2>💡Failing to Customize Your Resume Using AI Tools</h2>
              <p>You may take the help of AI tools to customize your resume toward job descriptions, which gives you an added advantage of building confidence that your application very well meets employer's expectations.</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
@@ -701,15 +701,16 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
         <li>Highlight relevant skills and experience that line up with the job description.</li>
         <li>Incorporate keywords from the job posting to increase your chances of getting past an ATS.</li>
       </ul>
-            <li>💡Applying Without Showcasing Your Skills Growth</li>
-             <p>Applying for jobs that are just not aligned with the applicants' skills or experiences tends to be one of the major factors leading to rejections.</p>
+            <h2>💡Applying Without Showcasing Your Skills Growth</h2>
+             <p><a style="color:blue" href="https://mailerjobs.com/jobs">Applying for jobs</a> that are just not aligned with the applicants' skills or experiences tends to be one of the major factors leading to rejections. If the applicant does not meet at least 70% of the stated requirements, the chances of progressing are very low.
+</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Apply only for those roles that match your qualifications and experience.</li>
         <li>If you lack a specific skill mentioned in the job description, make use of AI-enabled tools to assess and identify skill gaps and explore online courses or certification options to fill the gap.</li>
         <li>Illustrate proof of skill development in your resume and cover letter.</li>
       </ul>
-            <li>💡Weak or Missing Cover Letter</li>
+            <h2>💡Weak or Missing Cover Letter</h2>
             <p>Some candidates don't even bother sending a cover letter or just send out a generic one that doesn't do their resumes any justice.</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
@@ -717,37 +718,41 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
         <li>Cite with particular clarity your most relevant skills and experiences.</li>
         <li>Be brief—ideally, one page at maximum.</li>
       </ul>
-            <li>💡Ignoring Application Instructions</li>
-             <p>Some job postings give very specific instructions.</p>
+            <h2>💡Ignoring Application Instructions</h2>
+             <p>Some job postings give very specific instructions. They might say you should turn in a portfolio or that you must answer a certain question in your cover letter. Ignoring these can lead to immediate rejection.
+</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Read job description in detail and fulfill all the instructions requested.</li>
         <li>Double-check that you’ve included all requested documents.</li>
       </ul>
-            <li>💡Poor Interview Performance</li>
-             <p>If other candidates show their capabilities well in interviews, it could hurt your chances of securing the job.</p>
+            <h2>💡Poor Interview Performance</h2>
+             <p>If other candidates show their capabilities well in interviews, it could hurt your chances of securing the job. A good interview demonstrates a range of skills, enthusiasm, and preparedness. Common mistakes which could affect you are showing up unprepared, being unaware of the sea of candidates you would face, and answering vaguely. Genuinely investing time to know about the organisation, preparing articulate responses, and demonstrating sincere interest guarantee you a soft landing.
+</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Do enough research on the company and the position.</li>
         <li>Practice giving specific answers to common interview questions.</li>
         <li>Show enthusiasm and ask insightful questions.</li>
       </ul>
-            <li>💡Not Following up After the Interview</li>
-            <p>Following up gives you an opportunity to re-emphasize your interest and keep your name fresh in the interviewer's mind.</p>
+            <h2>💡Not Following up After the Interview</h2>
+            <p>Many candidates believe the process is complete after dedicating days and hours to <a style="color:blue" href="https://mailerjobs.com/">job searching</a>, submitting applications, and attending interviews. However, following up gives you an opportunity to re-emphasise your interest and keep your name fresh in the interviewer's mind.
+</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Mail a thank-you email within the first 24 hours after the interview.</li>
         <li>Show appreciation for the chance given and mention your excitement for the role.</li>
       </ul>
-            <li>💡Not Addressing Employment Gaps</li>
-            <p>Unexplained employment gaps may set off alarm bells for recruiters.</p>
+            <h2>💡Not Addressing Employment Gaps</h2>
+            <p>Unexplained employment gaps may set off alarm bells for recruiters. If you do not explain these gaps, they might assume the worst.</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Be honest about career breaks and provide a brief explanation.</li>
         <li>Mention any skills you gained during those gaps, be it freelance work, coursework, or volunteering.</li>
       </ul>
-            <li>💡Negative References or Poor Social Media Presence</li>
-            <p>Hiring managers may call your references to check upon you or look up your social media profiles.</p>
+            <h2>💡Negative References or Poor Social Media Presence</h2>
+            <p>Hiring managers may call your references to check upon you or look up your social media profiles. Negative feedback or inappropriate content can harm your chances.
+</p>
       <p><strong>How to fix it:</strong></p>
       <ul>
         <li>Choose professional references who will speak positively about your work.</li>
@@ -771,4 +776,4 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
           }
-        `})]});function Ove(){const[e,t]=g.useState(!1);return g.useEffect(()=>{setTimeout(()=>{t(!0)},2e3),Cge.initialize({gtmId:"GTM-NWQT5669"})},[]),u.jsx(u.Fragment,{children:e?u.jsx(u.Fragment,{children:u.jsxs(Cz,{children:[u.jsx(Vhe,{}),u.jsx(Ode,{children:u.jsxs(fz,{children:[u.jsx(br,{path:"/",element:u.jsx(r2,{})}),u.jsx(br,{path:"/home",element:u.jsx(r2,{})}),u.jsx(br,{path:"/home/job-view/:id",element:u.jsx(N2,{})}),u.jsx(br,{path:"/jobs",element:u.jsx(Ide,{})}),u.jsx(br,{path:"/college",element:u.jsx(rme,{})}),u.jsx(br,{path:"/candidate",element:u.jsx(fme,{})}),u.jsx(br,{path:"/client",element:u.jsx(nge,{})}),u.jsx(br,{path:"/college-section/:name",element:u.jsx(oge,{})}),u.jsx(br,{path:"/job-view/:id",element:u.jsx(N2,{})}),u.jsx(br,{path:"/blogs",element:u.jsx(age,{})}),u.jsx(br,{path:"/blogs/:id",element:u.jsx(ige,{})}),u.jsx(br,{path:"/jobfair",element:u.jsx(Sge,{})}),u.jsx(br,{path:"/jobfair/data",element:u.jsx(jve,{})}),u.jsx(br,{path:"*",element:u.jsx(Ive,{})})," "]})})]})}):u.jsx("div",{className:"h-screen w-full flex items-center justify-center",children:u.jsx(YL,{sx:{display:"flex"},children:u.jsx(Uc,{size:60,style:{color:"#90267A"}})})})})}nj(document.getElementById("root")).render(u.jsx(P3,{children:u.jsx(Ove,{})}));
+        `})]});function Ove(){const[e,t]=g.useState(!1);return g.useEffect(()=>{setTimeout(()=>{t(!0)},2e3),Cge.initialize({gtmId:"GTM-NWQT5669"})},[]),u.jsx(u.Fragment,{children:e?u.jsx(u.Fragment,{children:u.jsxs(Cz,{children:[u.jsx(Vhe,{}),u.jsx(Ode,{children:u.jsxs(fz,{children:[u.jsx(br,{path:"/",element:u.jsx(r2,{})}),u.jsx(br,{path:"/home",element:u.jsx(r2,{})}),u.jsx(br,{path:"/home/job-view/:id",element:u.jsx(N2,{})}),u.jsx(br,{path:"/jobs",element:u.jsx(Ide,{})}),u.jsx(br,{path:"/college",element:u.jsx(rme,{})}),u.jsx(br,{path:"/candidate",element:u.jsx(fme,{})}),u.jsx(br,{path:"/client",element:u.jsx(nge,{})}),u.jsx(br,{path:"/college-section/:name",element:u.jsx(oge,{})}),u.jsx(br,{path:"/job-view/:id",element:u.jsx(N2,{})}),u.jsx(br,{path:"/blogs",element:u.jsx(age,{})}),u.jsx(br,{path:"/blogs/:id",element:u.jsx(ige,{})}),u.jsx(br,{path:"/jobfair",element:u.jsx(Sge,{})}),u.jsx(br,{path:"/jobfair/data",element:u.jsx(jve,{})}),u.jsx(br,{path:"*",element:u.jsx(Ive,{})})]})})]})}):u.jsx("div",{className:"h-screen w-full flex items-center justify-center",children:u.jsx(YL,{sx:{display:"flex"},children:u.jsx(Uc,{size:60,style:{color:"#90267A"}})})})})}nj(document.getElementById("root")).render(u.jsx(P3,{children:u.jsx(Ove,{})}));
