@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from Models.student_model import register_student
 from Models.student_model import get_all_students
+from Models.student_model import get_all_students_by_college
 import os
 from config import Config;
 
@@ -70,6 +71,32 @@ def get_job_fair_data():
             } for student in students
         ]
         return jsonify(result), 200
+    except Exception as e:
+        print(f"Error fetching job fair data: {e}")
+        return jsonify({"error": str(e)}), 500
+    
+    
+@student_routes.route("/api/jobfair/<string:college_name>/<int:id>", methods=["GET"])
+def get_job_fair_data_by_college_name(college_name, id=0):
+    try:
+        students = get_all_students_by_college(college_name,id)
+        filtered_students = [
+            {
+                "name": student.get("name", ""),
+                "dob": student.get("dob", ""),
+                "gender": student.get("gender", ""),
+                "phone": student.get("phone", ""),
+                "email": student.get("email", ""),
+                "institution": student.get("institution", ""),
+                "degree": student.get("degree", ""),
+                "graduation_year": student.get("graduation_year", ""),
+                "reg_no": student.get("reg_no", ""),
+                "resume_url": student.get("resume_name", ""),
+            }
+            for student in students
+            if student.get("institution", "") == college_name
+        ]
+        return jsonify(filtered_students), 200
     except Exception as e:
         print(f"Error fetching job fair data: {e}")
         return jsonify({"error": str(e)}), 500

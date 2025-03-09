@@ -54,7 +54,7 @@ class Students:
     def get_students_by_college(college_name):
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT full_name, email, usn, course, resume_url FROM college_students WHERE college_name =  %s", (college_name,))
+        cursor.execute("SELECT * FROM college_students WHERE college_name =  %s", (college_name,))
         students = cursor.fetchall()
         cursor.close()
         conn.close()
