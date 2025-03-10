@@ -102,7 +102,7 @@ def get_job_fair_data_by_college_name(college_name, id=0):
                 "resume_url": student.get("resume_name", ""),
             }
             for student in students
-            if student.get("institution", "") == decoded_college_name
+            # if student.get("institution", "") == decoded_college_name
         ]
         
         return jsonify(filtered_students), 200
