@@ -88,7 +88,8 @@ def get_job_fair_data_by_college_name(college_name, id=0):
         print(students)
         print()
         
-        filtered_students = [
+        # Filter the students based on the institution name
+        filtered_students = [  
             {
                 "name": student.get("name", ""),
                 "dob": student.get("dob", ""),
@@ -105,7 +106,14 @@ def get_job_fair_data_by_college_name(college_name, id=0):
             if student.get("institution", "") == decoded_college_name
         ]
         
-        return jsonify(filtered_students), 200
+        # Return the filtered students along with college_name and id
+        response = {
+            "college_name": decoded_college_name,
+            "id": id,
+            "students": filtered_students
+        }
+
+        return jsonify(response), 200
     except Exception as e:
         print(f"Error fetching job fair data: {e}")
         return jsonify({"error": str(e)}), 500
