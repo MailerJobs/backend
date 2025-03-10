@@ -84,7 +84,7 @@ def get_job_fair_data_by_college_name(college_name, id=0):
         decoded_college_name = urllib.parse.unquote(college_name)
         
         # Assuming get_all_students_by_college function works as expected
-        students = get_all_students_by_college(decoded_college_name)
+        students = get_all_students_by_college(str(decoded_college_name), id)
         print(students)
         print()
         
