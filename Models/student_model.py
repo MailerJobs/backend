@@ -53,9 +53,9 @@ def get_all_students_by_college(college_name,id=0):
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
     FROM students
-    where institution = %s 
+    where student_id > %s
     """
-    cursor.execute(query,(college_name,))
+    cursor.execute(query,(college_name,id))
     students = cursor.fetchall()
     conn.close()
 
