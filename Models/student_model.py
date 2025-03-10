@@ -60,7 +60,7 @@ def get_all_students_by_college(college_name, id=0):
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
     FROM students
-    WHERE institution = %s AND student_id > %s
+    WHERE institution = %s AND  id > %s
     """
     
     cursor.execute(query, (decoded_college_name, id))
