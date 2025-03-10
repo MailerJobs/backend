@@ -78,7 +78,7 @@ def get_job_fair_data():
     
 
 
-@app.route("/api/jobfair/<string:college_name>", methods=["GET"])
+@student_routes.route("/api/jobfair/<string:college_name>", methods=["GET"])
 def get_job_fair_data_by_college_name(college_name):
     try:
         # Fetch student data by college name
