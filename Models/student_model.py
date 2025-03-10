@@ -63,7 +63,7 @@ def get_all_students_by_college(college_name, id=0):
     WHERE institution = %s
     """
     
-    cursor.execute(query, (str(decoded_college_name), int(id)))
+    cursor.execute(query, (str(decoded_college_name), ))
     students = cursor.fetchall()
     
     print(f"Fetched {len(students)} students.")  # Debug line
