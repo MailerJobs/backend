@@ -77,43 +77,33 @@ def get_job_fair_data():
         return jsonify({"error": str(e)}), 500
     
 
-@student_routes.route("/api/jobfair/<string:college_name>/<int:id>", methods=["GET"])
-def get_job_fair_data_by_college_name(college_name, id=0):
+
+@app.route("/api/jobfair/<string:college_name>", methods=["GET"])
+def get_job_fair_data_by_college_name(college_name):
     try:
-        # Decode the college_name to replace %20 with a space (and handle other encoded characters)
-        decoded_college_name = urllib.parse.unquote(college_name).strip()
-        
-        # Assuming get_all_students_by_college function works as expected
-        students = get_all_students_by_college(str(decoded_college_name), id)
-        print(students)
-        print()
-        
-        # Filter the students based on the institution name
+        # Fetch student data by college name
+        students = get_all_students_by_college(college_name.strip())
+        print(f"Fetched {len(students)} students.")
+
+        # Prepare the response
         filtered_students = [  
             {
-                "name": student.get("name", ""),
-                "dob": student.get("dob", ""),
-                "gender": student.get("gender", ""),
-                "phone": student.get("phone", ""),
-                "email": student.get("email", ""),
-                "institution": student.get("institution", ""),
-                "degree": student.get("degree", ""),
-                "graduation_year": student.get("graduation_year", ""),
-                "reg_no": student.get("reg_no", ""),
-                "resume_url": student.get("resume_name", ""),
+                "name": student["name"],
+                "dob": student["dob"],
+                "gender": student["gender"],
+                "phone": student["phone"],
+                "email": student["email"],
+                "institution": student["institution"],
+                "degree": student["degree"],
+                "graduation_year": student["graduation_year"],
+                "reg_no": student["reg_no"],
+                "resume_url": student["resume_name"]
             }
             for student in students
-            if student.get("institution", "") == decoded_college_name
         ]
         
-        # Return the filtered students along with college_name and id
-        response = {
-            "college_name": decoded_college_name,
-            "id": id,
-            "students": filtered_students
-        }
-
-        return jsonify(response), 200
+        return jsonify({"students": filtered_students}), 200
     except Exception as e:
         print(f"Error fetching job fair data: {e}")
         return jsonify({"error": str(e)}), 500
+

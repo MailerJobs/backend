@@ -47,28 +47,23 @@ def get_all_students():
 
     return students
 
-def get_all_students_by_college(college_name, id=0):
-    """Fetches all registered student data for a specific college and student_id is greater than id."""
+def get_all_students_by_college(college_name):
+    """Fetches all registered student data for a specific college."""
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     
     decoded_college_name = urllib.parse.unquote(college_name).strip()  # Strip spaces
     print(f"Decoded College Name: '{decoded_college_name}'")
-    print(f"Student ID: {id}")
     
-    # Debug query without student_id condition
+    # Updated query to filter by college name only
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
     FROM students
-    WHERE institution = %s
+    WHERE institution = ?
     """
     
-    cursor.execute(query, (str(decoded_college_name), ))
+    cursor.execute(query, (decoded_college_name,))
     students = cursor.fetchall()
-    
-    print(f"Fetched {len(students)} students.")  # Debug line
     
     conn.close()
     return students
-
-    
