@@ -4,6 +4,7 @@ from Models.student_model import get_all_students
 from Models.student_model import get_all_students_by_college
 import os
 from config import Config;
+import urllib.parse
 
 
 student_routes = Blueprint("student_routes", __name__)
