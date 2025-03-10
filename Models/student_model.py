@@ -46,16 +46,16 @@ def get_all_students():
 
     return students
 
-def get_all_students_by_college(college_name,id):
+def get_all_students_by_college(college_name):
     """Fetches all registered student data for a specific college and student_id is greater than id."""
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
     FROM students
-    WHERE institution = %s AND student_id > %s
+    WHERE institution = %s 
     """
-    cursor.execute(query, (college_name,int(id)))
+    cursor.execute(query, (college_name))
     students = cursor.fetchall()
     conn.close()
 
