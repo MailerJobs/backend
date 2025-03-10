@@ -1,6 +1,7 @@
 import uuid
 import mysql.connector
 from config import Config
+import urllib.parse
 
 def get_db_connection():
     connection = mysql.connector.connect(
@@ -51,16 +52,23 @@ def get_all_students_by_college(college_name, id=0):
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     
+    decoded_college_name = urllib.parse.unquote(college_name).strip()  # Strip spaces
+    print(f"Decoded College Name: '{decoded_college_name}'")
+    print(f"Student ID: {id}")
+    
+    # Debug query without student_id condition
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name
     FROM students
     WHERE institution = %s AND student_id > %s
     """
     
-    cursor.execute(query, (college_name, id))
+    cursor.execute(query, (decoded_college_name, id))
     students = cursor.fetchall()
+    
+    print(f"Fetched {len(students)} students.")  # Debug line
+    
     conn.close()
-
     return students
 
     
