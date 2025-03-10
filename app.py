@@ -41,14 +41,15 @@ CORS(
             "origins": [
                 "https://mailerjobs.com/",
                 "https://api.mailerjobs.com/",
-                "http://localhost:5173",
-                "http://localhost:5174",
-                "http://localhost:4173",
-                "https://nextlearn.co.in",
+                "http://localhost:5173/",
+                "http://localhost:5174/",
+                "http://localhost:4173/",
+                "https://nextlearn.co.in/",
                 "https://api.nextlearn.co.in",
             ]   
         }
     },
+    
 )
 
 api = Api(app)
