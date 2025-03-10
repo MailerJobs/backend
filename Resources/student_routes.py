@@ -1,169 +1,119 @@
-// @ts-nocheck
-import React, { useEffect, useState, useContext } from "react";
-import { toast } from "react-toastify";
-import { JobIndex } from "../components/context/job_list_context";
-import { format } from "date-fns";
+from flask import Blueprint, request, jsonify
+from Models.student_model import register_student, get_all_students, get_all_students_by_college
+import os
+from config import Config
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+student_routes = Blueprint("student_routes", __name__)
 
-const JobFairDataByCollegeName = () => {
-  const [selectedCollege, setSelectedCollege] = useState("");
-  const [students, setStudents] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { clientLogin } = useContext(JobIndex);
+UPLOAD_FOLDER = "uploads/"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-  useEffect(() => {
-    if (selectedCollege) {
-      fetchStudentData();
-    }
-  }, [selectedCollege]);
+# Route for student registration
+@student_routes.route("/api/jobfair/register", methods=["POST"])
+def register():
+    """Handles student registration."""
+    try:
+        # Get new fields from the form data
+        name = request.form.get("name")
+        dob = request.form.get("dob")
+        gender = request.form.get("gender")
+        phone = request.form.get("phone")
+        email = request.form.get("email")
+        institution = request.form.get("institution")
+        degree = request.form.get("degree")
+        graduation_year = request.form.get("graduation_year")
+        reg_no = request.form.get("reg_no")
+        resume = request.files.get("resume")
+        english_proficiency = request.form.get("english_proficiency")
+        hindi_proficiency = request.form.get("hindi_proficiency")
+        backlog_status = request.form.get("backlog_status")
 
-  // Fetching student data based on college name
-  const fetchStudentData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`${BASE_URL}jobfair/${selectedCollege}`);
-      if (!response.ok) throw new Error("Failed to fetch student data");
+        if not all([name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume, english_proficiency, hindi_proficiency, backlog_status]):
+            return jsonify({"error": "All required fields must be filled"}), 400
 
-      const result = await response.json();
-      console.log("API Response:", result); // Debugging
+        jobfair_folder = os.path.join(Config.RESUME_FOLDER, "JobFair")
+        os.makedirs(jobfair_folder, exist_ok=True)
 
-      if (!result.students || !Array.isArray(result.students)) {
-        throw new Error("Unexpected API response format");
-      }
+        # Save resume file
+        resume_name = resume.filename
+        resume_path = os.path.join(jobfair_folder, resume_name)
+        resume.save(resume_path)
 
-      const formattedData = result.students.map((student, index) => ({
-        id: student.id || index + 1, // Ensure unique IDs
-        full_name: student.name || "N/A", // Display full name
-        dob: student.dob ? format(new Date(student.dob), "dd/MM/yyyy") : "N/A", // Format DOB
-        gender: student.gender || "N/A",
-        phone: student.phone || "N/A",
-        email: student.email || "N/A",
-        institution: student.institution || "N/A",
-        degree: student.degree || "N/A",
-        graduation_year: student.graduation_year || "N/A",
-        reg_no: student.reg_no || "N/A",
-        resume_url: student.resume_name || "N/A", // Display resume URL
-        english_proficiency: student.english_proficiency || "N/A", // Add English proficiency
-        hindi_proficiency: student.hindi_proficiency || "N/A", // Add Hindi proficiency
-        backlog_status: student.backlog_status || "N/A", // Add backlog status
-      }));
-
-      setStudents(formattedData);
-    } catch (error) {
-      toast.error("Error fetching student data", { position: "top-center" });
-      console.error("Student Fetch Error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleCollegeChange = (e) => setSelectedCollege(e.target.value);
-
-  const handleSubmit = () => {
-    if (selectedCollege.trim() === "") {
-      toast.error("Please enter a college name", { position: "top-center" });
-    } else {
-      fetchStudentData();
-    }
-  };
-
-  return (
-    <div className="w-full max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-3xl font-bold mb-6 text-center text-black">
-        Student Details by College Name
-      </h2>
-
-      {/* College input */}
-      <div className="mb-4 flex justify-center">
-        <input
-          type="text"
-          className="p-3 border border-gray-300 rounded-lg w-1/2"
-          placeholder="Enter College Name"
-          value={selectedCollege}
-          onChange={handleCollegeChange}
-        />
-      </div>
-
-      {/* Submit Button */}
-      <div className="mb-6 flex justify-center">
-        <button
-          onClick={handleSubmit}
-          className="p-3 bg-blue-500 text-white rounded-lg"
-        >
-          Submit
-        </button>
-      </div>
-
-      {/* Data display */}
-      {clientLogin ? (
-        loading ? (
-          <div className="flex justify-center items-center h-32">
-            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"></div>
-          </div>
-        ) : (
-          <table className="w-full border-collapse border border-gray-300">
-            <thead>
-              <tr className="bg-gray-200 text-left">
-                <th className="border p-3 text-center">ID</th>
-                <th className="border p-3">Full Name</th>
-                <th className="border p-3">Date of Birth</th>
-                <th className="border p-3">Gender</th>
-                <th className="border p-3">Phone</th>
-                <th className="border p-3">Email</th>
-                <th className="border p-3">Institution</th>
-                <th className="border p-3">Degree</th>
-                <th className="border p-3">Graduation Year</th>
-                <th className="border p-3">Register Number</th>
-                <th className="border p-3">Resume</th>
-                <th className="border p-3">English Proficiency</th>
-                <th className="border p-3">Hindi Proficiency</th>
-                <th className="border p-3">Backlog Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {students.length > 0 ? (
-                students.map((student, index) => (
-                  <tr key={index} className="text-center">
-                    <td className="border p-3">{student.id}</td>
-                    <td className="border p-3">{student.full_name}</td>
-                    <td className="border p-3">{student.dob}</td>
-                    <td className="border p-3">{student.gender}</td>
-                    <td className="border p-3">{student.phone}</td>
-                    <td className="border p-3">{student.email}</td>
-                    <td className="border p-3">{student.institution}</td>
-                    <td className="border p-3">{student.degree}</td>
-                    <td className="border p-3">{student.graduation_year}</td>
-                    <td className="border p-3">{student.reg_no}</td>
-                    <td className="border p-3">
-                      <a href={student.resume_url} target="_blank" rel="noopener noreferrer">
-                        Resume
-                      </a>
-                    </td>
-                    <td className="border p-3">{student.english_proficiency}</td>
-                    <td className="border p-3">{student.hindi_proficiency}</td>
-                    <td className="border p-3">{student.backlog_status}</td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="14" className="border p-4 text-center text-gray-500">
-                    No student data found
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+        # Register student and get student ID
+        student_id = register_student(
+            name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
+            english_proficiency, hindi_proficiency, backlog_status
         )
-      ) : (
-        <div className="text-center py-10">
-          <h1 className="text-2xl font-bold text-red-500">
-            Please log in to view student details
-          </h1>
-        </div>
-      )}
-    </div>
-  );
-};
 
-export default JobFairDataByCollegeName;
+        # Send response
+        return jsonify({"message": "Registration successful", "student_id": student_id}), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+# Route to fetch all registered student data
+@student_routes.route("/api/jobfair/data", methods=["GET"])
+def get_job_fair_data():
+    """Fetches all registered student data."""
+    try:
+        students = get_all_students()
+        print(students)
+        print()  # Debug: print the fetched data
+        result = [
+            {
+                "student_id": student['student_id'],
+                "name": student['name'],
+                "dob": student['dob'],
+                "gender": student['gender'],
+                "phone": student['phone'],
+                "email": student['email'],
+                "institution": student['institution'],
+                "degree": student['degree'],
+                "graduation_year": student['graduation_year'],
+                "reg_no": student['reg_no'],
+                "resume_url": student['resume_name'],
+                "english_proficiency": student['english_proficiency'],
+                "hindi_proficiency": student['hindi_proficiency'],
+                "backlog_status": student['backlog_status']
+            } for student in students
+        ]
+        return jsonify(result), 200
+    except Exception as e:
+        print(f"Error fetching job fair data: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+# Route to fetch student data by college name
+@student_routes.route("/api/jobfair/<string:college_name>", methods=["GET"])
+def get_job_fair_data_by_college_name(college_name):
+    try:
+        # Fetch student data by college name
+        students = get_all_students_by_college(college_name.strip())
+        print(f"Fetched {len(students)} students.")
+
+        # Prepare the response
+        filtered_students = [
+            {
+                "student_id": student["student_id"],
+                "name": student["name"],
+                "dob": student["dob"],
+                "gender": student["gender"],
+                "phone": student["phone"],
+                "email": student["email"],
+                "institution": student["institution"],
+                "degree": student["degree"],
+                "graduation_year": student["graduation_year"],
+                "reg_no": student["reg_no"],
+                "resume_url": student["resume_name"],
+                "english_proficiency": student["english_proficiency"],
+                "hindi_proficiency": student["hindi_proficiency"],
+                "backlog_status": student["backlog_status"]
+            }
+            for student in students
+        ]
+        
+        return jsonify({"students": filtered_students}), 200
+    except Exception as e:
+        print(f"Error fetching job fair data: {e}")
+        return jsonify({"error": str(e)}), 500
