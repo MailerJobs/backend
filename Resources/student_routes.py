@@ -84,6 +84,8 @@ def get_job_fair_data_by_college_name(college_name, id=0):
         
         # Assuming get_all_students_by_college function works as expected
         students = get_all_students_by_college(decoded_college_name, id)
+        print(students)
+        print()
         
         filtered_students = [
             {
