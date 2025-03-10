@@ -75,11 +75,16 @@ def get_job_fair_data():
         print(f"Error fetching job fair data: {e}")
         return jsonify({"error": str(e)}), 500
     
-    
+
 @student_routes.route("/api/jobfair/<string:college_name>/<int:id>", methods=["GET"])
 def get_job_fair_data_by_college_name(college_name, id=0):
     try:
-        students = get_all_students_by_college(college_name,id)
+        # Decode the college_name to replace %20 with a space (and handle other encoded characters)
+        decoded_college_name = urllib.parse.unquote(college_name)
+        
+        # Assuming get_all_students_by_college function works as expected
+        students = get_all_students_by_college(decoded_college_name, id)
+        
         filtered_students = [
             {
                 "name": student.get("name", ""),
@@ -94,8 +99,9 @@ def get_job_fair_data_by_college_name(college_name, id=0):
                 "resume_url": student.get("resume_name", ""),
             }
             for student in students
-            if student.get("institution", "") == college_name
+            if student.get("institution", "") == decoded_college_name
         ]
+        
         return jsonify(filtered_students), 200
     except Exception as e:
         print(f"Error fetching job fair data: {e}")
