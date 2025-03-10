@@ -81,7 +81,7 @@ def get_job_fair_data():
 def get_job_fair_data_by_college_name(college_name, id=0):
     try:
         # Decode the college_name to replace %20 with a space (and handle other encoded characters)
-        decoded_college_name = urllib.parse.unquote(college_name)
+        decoded_college_name = urllib.parse.unquote(college_name).strip()
         
         # Assuming get_all_students_by_college function works as expected
         students = get_all_students_by_college(str(decoded_college_name), id)
