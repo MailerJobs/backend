@@ -48,10 +48,12 @@ class StudentResource(Resource):
             logging.error(f"Error in StudentResource: {str(e)}")
             return {"error": "Internal Server Error"}, 500
             
-
 class StudentsByCollegeResource(Resource):
-    def get(self,college_name):
-        students = Students.get_students_by_college(college_name)
-        if students:
-            return students, 200
-        return {"error": "Students Not Found"}, 400
+    def get(self, college_name):
+        try:
+            students = Students.get_students_by_college(college_name)
+            if students:
+                return {"students": students}, 200
+            return {"error": "Students Not Found"}, 404  # Changed 400 to 404
+        except Exception as e:
+            return {"error": f"An error occurred: {str(e)}"}, 500 
