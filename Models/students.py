@@ -65,6 +65,7 @@ class Students:
     
         cursor.close()
         conn.close()
+        return students
 
     
 
