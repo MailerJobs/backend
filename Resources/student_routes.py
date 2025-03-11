@@ -2,6 +2,12 @@ from flask import Blueprint, request, jsonify
 from Models.student_model import register_student, get_all_students, get_all_students_by_college
 import os
 from config import Config
+import logging
+from datetime import datetime
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 student_routes = Blueprint("student_routes", __name__)
 
@@ -37,12 +43,33 @@ def register():
         if not all(required_fields):
             return jsonify({"error": "All required fields must be filled"}), 400
 
+        # Validate email format
+        if "@" not in email or "." not in email:
+            return jsonify({"error": "Invalid email format"}), 400
+
+        # Validate phone number (basic check)
+        if not phone.isdigit() or len(phone) != 10:
+            return jsonify({"error": "Invalid phone number"}), 400
+
+        # Validate date of birth format
+        try:
+            datetime.strptime(dob, "%Y-%m-%d")
+        except ValueError:
+            return jsonify({"error": "Invalid date of birth format (expected YYYY-MM-DD)"}), 400
+
         # Create job fair folder if it doesn't exist
         jobfair_folder = os.path.join(Config.RESUME_FOLDER, "JobFair")
         os.makedirs(jobfair_folder, exist_ok=True)
 
         # Save resume file
         resume_name = resume.filename
+        if not resume_name.lower().endswith(".pdf"):
+            return jsonify({"error": "Resume must be a PDF file"}), 400
+
+        # Handle duplicate filenames
+        if os.path.exists(os.path.join(jobfair_folder, resume_name)):
+            resume_name = f"{os.path.splitext(resume_name)[0]}_{datetime.now().strftime('%Y%m%d%H%M%S')}.pdf"
+
         resume_path = os.path.join(jobfair_folder, resume_name)
         resume.save(resume_path)
 
@@ -60,7 +87,8 @@ def register():
         }), 201
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error during registration: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
 
 
 # Route to fetch all registered student data
@@ -90,8 +118,8 @@ def get_job_fair_data():
         ]
         return jsonify(result), 200
     except Exception as e:
-        print(f"Error fetching job fair data: {e}")
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error fetching job fair data: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
 
 
 # Route to fetch student data by college name
@@ -125,5 +153,5 @@ def get_job_fair_data_by_college_name(college_name):
 
         return jsonify({"students": filtered_students}), 200
     except Exception as e:
-        print(f"Error fetching job fair data: {e}")
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error fetching job fair data: {e}")
+        return jsonify({"error": "An internal server error occurred"}), 500
