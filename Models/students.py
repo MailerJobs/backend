@@ -50,21 +50,21 @@ class Students:
         
         return True
     
+    from urllib.parse import unquote
+
     @staticmethod
     def get_students_by_college(college_name):
         conn = get_db_connection()
         cursor = conn.cursor(dictionary=True)
 
-    # Remove '%20' from the college name
-        college_name = college_name.replace("%20", " ")
+    # Decode URL-encoded characters (e.g., %20 to space)
+        college_name = unquote(college_name)
 
         cursor.execute("SELECT * FROM college_students WHERE college_name = %s", (college_name,))
         students = cursor.fetchall()
     
         cursor.close()
         conn.close()
-    
-        return students
 
     
 
