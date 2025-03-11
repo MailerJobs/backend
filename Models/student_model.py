@@ -13,7 +13,7 @@ def get_db_connection():
     return connection
 
 def register_student(name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
-                     english_proficiency, hindi_proficiency, backlog_status, transaction_id):
+                     english_proficiency, hindi_proficiency, backlog_status):
     """Registers a student and generates a unique ID."""
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
@@ -23,11 +23,11 @@ def register_student(name, dob, gender, phone, email, institution, degree, gradu
     query = """
     INSERT INTO students 
     (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
-     english_proficiency, hindi_proficiency, backlog_status, transaction_id) 
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+     english_proficiency, hindi_proficiency, backlog_status) 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
-              english_proficiency, hindi_proficiency, backlog_status, transaction_id)
+              english_proficiency, hindi_proficiency, backlog_status)
 
     cursor.execute(query, values)
     conn.commit()
@@ -42,7 +42,7 @@ def get_all_students():
 
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
-           english_proficiency, hindi_proficiency, backlog_status, transaction_id
+           english_proficiency, hindi_proficiency, backlog_status
     FROM students
     """
     cursor.execute(query)
@@ -61,7 +61,7 @@ def get_all_students_by_college(college_name):
     
     query = """
     SELECT student_id, name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
-           english_proficiency, hindi_proficiency, backlog_status, transaction_id
+           english_proficiency, hindi_proficiency, backlog_status
     FROM students
     WHERE institution = %s
     """

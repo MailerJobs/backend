@@ -30,7 +30,7 @@ class Students:
             conn.close()
             return {"status": 409, "message": "Username, Email, Phone, or Register Number already exists!"}
         cursor.execute(
-            "INSERT INTO college_students (college_name, full_name, username, email, phone, pincode, city, usn, course, resume_url) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+            "INSERT INTO college_students (college_name, full_name, username, email, phone, pincode, city, usn, course, resume_name) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
             (
                 college_name,
                 full_name,
