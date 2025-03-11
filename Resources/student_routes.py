@@ -13,7 +13,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def register():
     """Handles student registration."""
     try:
-        # Get all fields from the form data
+        # Get new fields from the form data
         name = request.form.get("name")
         dob = request.form.get("dob")
         gender = request.form.get("gender")
@@ -27,17 +27,10 @@ def register():
         english_proficiency = request.form.get("english_proficiency")
         hindi_proficiency = request.form.get("hindi_proficiency")
         backlog_status = request.form.get("backlog_status")
-        transaction_id = request.form.get("transaction_id")  # New field
 
-        # Validate required fields
-        required_fields = [
-            name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume,
-            english_proficiency, hindi_proficiency, backlog_status, transaction_id
-        ]
-        if not all(required_fields):
+        if not all([name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume, english_proficiency, hindi_proficiency, backlog_status]):
             return jsonify({"error": "All required fields must be filled"}), 400
 
-        # Create job fair folder if it doesn't exist
         jobfair_folder = os.path.join(Config.RESUME_FOLDER, "JobFair")
         os.makedirs(jobfair_folder, exist_ok=True)
 
@@ -48,16 +41,12 @@ def register():
 
         # Register student and get student ID
         student_id = register_student(
-            name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name,
-            english_proficiency, hindi_proficiency, backlog_status, transaction_id  # Pass transaction_id
+            name, dob, gender, phone, email, institution, degree, graduation_year, reg_no, resume_name, 
+            english_proficiency, hindi_proficiency, backlog_status
         )
 
         # Send response
-        return jsonify({
-            "message": "Registration successful",
-            "student_id": student_id,
-            "transaction_id": transaction_id  # Include transaction_id in the response
-        }), 201
+        return jsonify({"message": "Registration successful", "student_id": student_id}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -69,6 +58,8 @@ def get_job_fair_data():
     """Fetches all registered student data."""
     try:
         students = get_all_students()
+        print(students)
+        print()  # Debug: print the fetched data
         result = [
             {
                 "student_id": student['student_id'],
@@ -84,8 +75,7 @@ def get_job_fair_data():
                 "resume_url": student['resume_name'],
                 "english_proficiency": student['english_proficiency'],
                 "hindi_proficiency": student['hindi_proficiency'],
-                "backlog_status": student['backlog_status'],
-                "transaction_id": student['transaction_id']  # Include transaction_id
+                "backlog_status": student['backlog_status']
             } for student in students
         ]
         return jsonify(result), 200
@@ -100,6 +90,7 @@ def get_job_fair_data_by_college_name(college_name):
     try:
         # Fetch student data by college name
         students = get_all_students_by_college(college_name.strip())
+        print(f"Fetched {len(students)} students.")
 
         # Prepare the response
         filtered_students = [
@@ -117,12 +108,11 @@ def get_job_fair_data_by_college_name(college_name):
                 "resume_url": student["resume_name"],
                 "english_proficiency": student["english_proficiency"],
                 "hindi_proficiency": student["hindi_proficiency"],
-                "backlog_status": student["backlog_status"],
-                "transaction_id": student["transaction_id"]  # Include transaction_id
+                "backlog_status": student["backlog_status"]
             }
             for student in students
         ]
-
+        
         return jsonify({"students": filtered_students}), 200
     except Exception as e:
         print(f"Error fetching job fair data: {e}")
