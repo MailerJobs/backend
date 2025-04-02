@@ -673,87 +673,87 @@ Yours sincerely,
     <p>A well-crafted cover letter remains a powerful tool for creating a positive first impression. By including essential elements such as contact information, a professional greeting, and examples of achievements, you can highlight your suitability for the role.</p>
     <br />
     <p>Leveraging AI writing tools like ChatGPT and Gemini can make the process even easier. However, always personalize the final version to reflect your unique voice and experiences.</p>`},{id:2,slug:"Why-Your-Job-Applications-Are-Getting-Rejected",title:"Why Your Job Applications Are Getting Rejected (And How to Fix It)",summary:"Discover common reasons for job application rejections and tips on how to improve your chaYou've spent endless hours painstakingly preparing your resume, composing a moving cover letter, and applying for jobs that fit your skill set. Still, you have received no responses from any of the employers.nces.",date:"March 3, 2025",image_url:"/blog2.webp",content:`
-      <p>Why Your Job Applications Are Getting Rejected (And How to Fix It)</p>
+      
       <p>You've spent endless hours painstakingly preparing your resume, composing a moving cover letter, and applying for jobs that fit your skill set. Still, you have received no responses from any of the employers.</p>
       <p>What could possibly be going wrong?</p>
       <p>Job rejection is disheartening, to say the least, but letting them teach you by recognizing faults is quite effective in modifying your strategy. Here are some common pitfalls that applicants face-and what to do to fix them.</p>
       <ol>
-        <h2>💡Sending a Generic Resume and Cover Letter</h2>
+        <h2>Sending a Generic Resume and Cover Letter</h2>
         <p>By the way, applying for jobs doesn't work by using a one-size-fits-all method. Employers can receive hundreds of applications, and a generic resume is unlikely to get anyone's attention.</p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Customize each resume and cover letter as per every individual position.</li>
     <li>Emphasize relevant skills and experiences that correspond with the job description.</li>
   </ul>
-        <h2>💡Not Optimizing for ATS</h2>
+        <h2>Not Optimizing for ATS</h2>
         <p>Many companies use ATS software to weed out resumes before they are ever reviewed by human recruiters. If your application is incorrectly formatted, it may simply get discarded without anyone reading it.</p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Use a simple design with standard fonts and bullet points.</li>
     <li>Avoid using graphics, tables, or columns that will be difficult for the ATS to read.</li>
     <li>Include keywords that match those in the job description within your resume.</li>
   </ul>
-        <h2>💡Failing to Customize Your Resume Using AI Tools</h2>
+        <h2>Failing to Customize Your Resume Using AI Tools</h2>
          <p>You may take the help of AI tools to customize your resume toward job descriptions, which gives you an added advantage of building confidence that your application very well meets employer's expectations.</p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Leverage AI-powered resume builders to strengthen your application.</li>
     <li>Highlight relevant skills and experience that line up with the job description.</li>
     <li>Incorporate keywords from the job posting to increase your chances of getting past an ATS.</li>
   </ul>
-        <h2>💡Applying Without Showcasing Your Skills Growth</h2>
+        <h2>Applying Without Showcasing Your Skills Growth</h2>
          <p><a style="color:blue" href="https://mailerjobs.com/jobs">Applying for jobs</a> that are just not aligned with the applicants' skills or experiences tends to be one of the major factors leading to rejections. If the applicant does not meet at least 70% of the stated requirements, the chances of progressing are very low.
 </p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Apply only for those roles that match your qualifications and experience.</li>
     <li>If you lack a specific skill mentioned in the job description, make use of AI-enabled tools to assess and identify skill gaps and explore online courses or certification options to fill the gap.</li>
     <li>Illustrate proof of skill development in your resume and cover letter.</li>
   </ul>
-        <h2>💡Weak or Missing Cover Letter</h2>
+        <h2>Weak or Missing Cover Letter</h2>
         <p>Some candidates don't even bother sending a cover letter or just send out a generic one that doesn't do their resumes any justice.</p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Write a cover letter with direct reference to the hiring manager.</li>
     <li>Cite with particular clarity your most relevant skills and experiences.</li>
     <li>Be brief—ideally, one page at maximum.</li>
   </ul>
-        <h2>💡Ignoring Application Instructions</h2>
+        <h2>Ignoring Application Instructions</h2>
          <p>Some job postings give very specific instructions. They might say you should turn in a portfolio or that you must answer a certain question in your cover letter. Ignoring these can lead to immediate rejection.
 </p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Read job description in detail and fulfill all the instructions requested.</li>
     <li>Double-check that you’ve included all requested documents.</li>
   </ul>
-        <h2>💡Poor Interview Performance</h2>
+        <h2>Poor Interview Performance</h2>
          <p>If other candidates show their capabilities well in interviews, it could hurt your chances of securing the job. A good interview demonstrates a range of skills, enthusiasm, and preparedness. Common mistakes which could affect you are showing up unprepared, being unaware of the sea of candidates you would face, and answering vaguely. Genuinely investing time to know about the organisation, preparing articulate responses, and demonstrating sincere interest guarantee you a soft landing.
 </p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Do enough research on the company and the position.</li>
     <li>Practice giving specific answers to common interview questions.</li>
     <li>Show enthusiasm and ask insightful questions.</li>
   </ul>
-        <h2>💡Not Following up After the Interview</h2>
+        <h2>Not Following up After the Interview</h2>
         <p>Many candidates believe the process is complete after dedicating days and hours to <a style="color:blue" href="https://mailerjobs.com/">job searching</a>, submitting applications, and attending interviews. However, following up gives you an opportunity to re-emphasise your interest and keep your name fresh in the interviewer's mind.
 </p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Mail a thank-you email within the first 24 hours after the interview.</li>
     <li>Show appreciation for the chance given and mention your excitement for the role.</li>
   </ul>
-        <h2>💡Not Addressing Employment Gaps</h2>
+        <h2>Not Addressing Employment Gaps</h2>
         <p>Unexplained employment gaps may set off alarm bells for recruiters. If you do not explain these gaps, they might assume the worst.</p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Be honest about career breaks and provide a brief explanation.</li>
     <li>Mention any skills you gained during those gaps, be it freelance work, coursework, or volunteering.</li>
   </ul>
-        <h2>💡Negative References or Poor Social Media Presence</h2>
+        <h2>Negative References or Poor Social Media Presence</h2>
         <p>Hiring managers may call your references to check upon you or look up your social media profiles. Negative feedback or inappropriate content can harm your chances.
 </p>
-  <p><strong>How to fix it:</strong></p>
+  <p><strong>💡 How to fix it:</strong></p>
   <ul>
     <li>Choose professional references who will speak positively about your work.</li>
     <li>Go through your social media accounts and remove the unprofessional content.</li>
