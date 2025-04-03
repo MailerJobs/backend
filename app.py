@@ -39,9 +39,11 @@ CORS(
     resources={
         r"/*": {
             "origins": [
+                "*",
                 "https://mailerjobs.com/",
                 "https://api.mailerjobs.com/",
                 "http://localhost:5173/",
+                "http://127.0.0.1:8000"
                 "http://localhost:5174/",
                 "http://localhost:4173/",
                 "https://nextlearn.co.in/",
@@ -104,7 +106,7 @@ from Resources.ClientResource import (
 )
 
 from Resources.CollegeResource import (
-    CollegesListReosurce,
+    CollegesListResource,
     CollegeResource,
     CollegeNamesListResource,
 )
@@ -181,7 +183,7 @@ api.add_resource(ClientJobsByComapnyNameResource, "/api/client-jobs-by-name")
 
 ## College api endpoints
 # Start
-api.add_resource(CollegesListReosurce, "/api/colleges")
+api.add_resource(CollegesListResource, "/api/colleges")
 api.add_resource(CollegeResource, "/api/college/<string:college_name>")
 api.add_resource(CollegeNamesListResource, "/api/college-names")
 

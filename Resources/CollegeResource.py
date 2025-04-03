@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from Models.Colleges import Colleges
 from flask import jsonify, make_response
 
-class CollegesListReosurce(Resource):
+class CollegesListResource(Resource):
     def get(self):
         colleges = Colleges.get_all_colleges()
         if not colleges:
